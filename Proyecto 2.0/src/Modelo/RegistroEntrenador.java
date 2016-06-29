@@ -97,8 +97,29 @@ public class RegistroEntrenador {
         return array;
     }
   
+    public String imprimir(String codigo){
+        Entrenador temporal=null;
+        String txt="";
+        for(int i =0;i<array.size();i++){
+            if(array.get(i).getCodigoDeEntrenador().equals(codigo)){
+               txt=array.get(i).getInformacion();
+               i=array.size();
+            }
+        }
+        return txt;
     
 
+    }
     
+    public boolean verificarEntrenador(String codigo){
+        boolean existe= false;
+        for(int i =0;i<array.size();i++){
+            if(array.get(i).getCodigoDeEntrenador().equals(codigo)){
+                existe = true;
+                i=array.size();
+            }
+        }
+        return existe;
+    }
     
 }

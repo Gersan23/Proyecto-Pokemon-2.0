@@ -19,12 +19,12 @@ import javax.swing.JOptionPane;
 public class ControladorVentanaCreadorEntrenador implements ActionListener {
 
     VentanaCreadorEntrenador ventanaCreador;
-    RegistroEntrenador regristroEntrenador;
+    RegistroEntrenador registroEntrenador;
     Entrenador entrenador;
 
     public ControladorVentanaCreadorEntrenador(VentanaCreadorEntrenador ventanita, RegistroEntrenador registroEnt) {
         ventanaCreador = ventanita;
-        regristroEntrenador = registroEnt;
+        registroEntrenador = registroEnt;
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -42,7 +42,7 @@ public class ControladorVentanaCreadorEntrenador implements ActionListener {
 
         }
         if (e.getActionCommand().equalsIgnoreCase("Buscar")) {
-
+            buscar();
         }
 
     }
@@ -51,26 +51,25 @@ public class ControladorVentanaCreadorEntrenador implements ActionListener {
         ventanaCreador.limpiar("", "");
     }
 
-        
     public void crearEntrenador() {//aqui empezó crearEntrenador
         Entrenador aux;
         String pokemon1 = ventanaCreador.getjC_Pokemon1();
         String pokemon2 = ventanaCreador.getjC_Pokemon2();
         String pokemon3 = ventanaCreador.getjC_Pokemon3();
         entrenador = new Entrenador(ventanaCreador.getjT_Usuario(), ventanaCreador.getjT_Codigo(), 0, 0, ventanaCreador.getjC_Pokemon1(), ventanaCreador.getjC_Pokemon3(), ventanaCreador.getjC_Pokemon3());
-        System.out.println(regristroEntrenador.getTamano());
-        if (regristroEntrenador.getTamano() != 0) {
+        System.out.println(registroEntrenador.getTamano());
+        if (registroEntrenador.getTamano() != 0) {
             System.out.println("lista con datos");
-            if (regristroEntrenador.verificarDatos(entrenador)) {
+            if (registroEntrenador.verificarDatos(entrenador)) {
 
-                regristroEntrenador.setObjeto(entrenador);
+                registroEntrenador.setObjeto(entrenador);
                 JOptionPane.showMessageDialog(null, "Creado con satisfacción.");
                 limpiar();
             }
 
         } else {
             System.out.println("lista sin datos");
-            regristroEntrenador.setObjeto(entrenador);
+            registroEntrenador.setObjeto(entrenador);
             JOptionPane.showMessageDialog(null, "Creado con satisfacción.");
             limpiar();
         }
@@ -78,7 +77,17 @@ public class ControladorVentanaCreadorEntrenador implements ActionListener {
     }//aqui termino crearEntrenador
 
     public void eliminar() {
-        regristroEntrenador.eliminar(ventanaCreador.getjT_CodigoBuscar());
+        registroEntrenador.eliminar(ventanaCreador.getjT_CodigoBuscar());
         JOptionPane.showMessageDialog(null, "Borrado con satiscacción");
+    }
+
+    public void buscar() {
+        if (registroEntrenador.verificarEntrenador(ventanaCreador.getjT_CodigoBuscar())) {
+            JOptionPane.showMessageDialog(null, "Informacion\n" +registroEntrenador.imprimir(ventanaCreador.getjT_CodigoBuscar() + ""));
+            limpiar();
+        } else {
+            JOptionPane.showMessageDialog(null, "No existe entrenador  registrado con codigo ingresado, por favor verifique");
+            limpiar();
+        }
     }
 }

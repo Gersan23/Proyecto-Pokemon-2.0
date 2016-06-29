@@ -45,6 +45,7 @@ public class VentanaCreadorEntrenador extends javax.swing.JFrame {
         jB_Crear.addActionListener(manejador);
         jB_Limpiar.addActionListener(manejador);
         jB_Modificar.addActionListener(manejador);
+        jB_Buscar.addActionListener(manejador);
     }
     public void llenarComboBox(){//llenar la lista de combobox
         jC_Pokemon1.removeAllItems();
