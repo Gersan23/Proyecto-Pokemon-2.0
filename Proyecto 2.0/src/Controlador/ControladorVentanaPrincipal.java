@@ -42,6 +42,7 @@ public class ControladorVentanaPrincipal implements ActionListener{
         }
         if(e.getActionCommand().equalsIgnoreCase("Ranking")){
             ventanaR.show();
+            ventanaR.llenarComboBox(registro);
         }
         if(e.getActionCommand().equalsIgnoreCase("Ver")){
             ventanaP.show();

@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import Vista.VentanaRanking;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -16,11 +17,11 @@ public class RegistroEntrenador {
      Entrenador entrenador;
 
   private ArrayList<Entrenador> array;
-  
+  private VentanaRanking ventana;
   public RegistroEntrenador()
   {
     array=new ArrayList<Entrenador>();
-    Entrenador computadora = new Entrenador("CPU", "0000", 0, 0, "Venusaur", "Blastoise", "Charizard");
+    Entrenador computadora = new Entrenador("CPU", "0000", 2, 1, "Venusaur", "Blastoise", "Charizard");
     setObjeto(computadora);
   }
   
@@ -49,6 +50,18 @@ public class RegistroEntrenador {
     for(int i=0;i<array.size();i++)
     {
       if(array.get(i).getCodigoDeEntrenador().equalsIgnoreCase(codigo))
+      {
+        objeto=array.get(i);
+      }
+    }
+    return objeto;
+  }
+   public Entrenador getObjetoU(String usuario)
+  {
+    Entrenador objeto=null;
+    for(int i=0;i<array.size();i++)
+    {
+      if(array.get(i).getUsuario().equalsIgnoreCase(usuario))
       {
         objeto=array.get(i);
       }

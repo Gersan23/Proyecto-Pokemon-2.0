@@ -4,18 +4,23 @@
  * and open the template in the editor.
  */
 package Controlador;
+import Modelo.Entrenador;
 import Vista.VentanaRanking;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import Modelo.RegistroEntrenador;
+import Vista.VentanaPokedex;
+import javax.swing.JComboBox;
 /**
  *
  * @author Gersan
  */
 public class ControladorVentanaRanking implements ActionListener {
     VentanaRanking ventanaR;
-
-    public ControladorVentanaRanking(){
-        this.ventanaR = ventanaR;
+    RegistroEntrenador array;
+    JComboBox combo;
+    public ControladorVentanaRanking(VentanaRanking ventanaP){
+        ventanaR = ventanaP;
     }
     
     /*public void actionPerformed(ActionEvent e){
@@ -26,6 +31,11 @@ public class ControladorVentanaRanking implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        numerosRanking();
+    }
+    
+    public void numerosRanking(){
+        int contador = ventanaR.getjC_Entrenadores().getSelectedIndex();
+        ventanaR.setContadores(contador);
     }
 }

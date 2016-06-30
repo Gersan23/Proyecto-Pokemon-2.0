@@ -23,7 +23,7 @@ public class ClientePrivado implements Runnable{
     private DataOutputStream out;
     
     private int puerto = 2028;
-    private String host = "localhost";
+    private String host = "";
     private String mensajes = "";
     JEditorPane panel;
     
