@@ -15,45 +15,54 @@ import Vista.VentanaPokedex;
 import Vista.VentanaBatalla;
 import Vista.FramePrivado;
 import javax.swing.JOptionPane;
+import Modelo.ServerPrivado;
+
 /**
  *
  * @author Gersan
  */
-public class ControladorVentanaPrincipal implements ActionListener{
-    
+public class ControladorVentanaPrincipal implements ActionListener {
+
     private VentanaCreadorEntrenador ventanaC;
     private VentanaRanking ventanaR;
     private VentanaPokedex ventanaP;
     private VentanaBatalla ventanaB;
     private RegistroEntrenador registro;
     private FramePrivado ventanaChat;
+    private ServerPrivado server;
+
     public ControladorVentanaPrincipal() {
-        registro=new RegistroEntrenador();
+        registro = new RegistroEntrenador();
         ventanaC = new VentanaCreadorEntrenador(registro);
         ventanaR = new VentanaRanking();
         ventanaP = new VentanaPokedex();
         ventanaB = new VentanaBatalla();
+        server = new ServerPrivado();
     }
-    
+
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equalsIgnoreCase("Crear Entrenador")) {
-            
-           ventanaC.show();
+
+            ventanaC.show();
         }
-        if(e.getActionCommand().equalsIgnoreCase("Ranking")){
+        if (e.getActionCommand().equalsIgnoreCase("Ranking")) {
             ventanaR.show();
             ventanaR.llenarComboBox(registro);
         }
-        if(e.getActionCommand().equalsIgnoreCase("Ver")){
+        if (e.getActionCommand().equalsIgnoreCase("Ver")) {
             ventanaP.show();
         }
-        if(e.getActionCommand().equalsIgnoreCase("Batalla")){
+        if (e.getActionCommand().equalsIgnoreCase("Batalla")) {
             ventanaB.show();
         }
-        if(e.getActionCommand().equalsIgnoreCase("Chat")){
+        if (e.getActionCommand().equalsIgnoreCase("Chat")) {
             ventanaChat = new FramePrivado();
             ventanaChat.show();
-        }    
-        
+        }
+        if (e.getActionCommand().equalsIgnoreCase("Server")) {
+            server = new ServerPrivado();
+            Thread servidorP = new Thread(server);
+            servidorP.start();
+        }
     }
 }

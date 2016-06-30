@@ -25,9 +25,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         this.jBChat.addActionListener(cVentanaPrincipal);
         jB_Batalla.setContentAreaFilled(false);
         jBChat.setContentAreaFilled(false);
-        serverP = new ServerPrivado();
-        Thread servidorP = new Thread(serverP);
-        servidorP.start();
+        jButton1.setContentAreaFilled(false);
+        jButton1.addActionListener(cVentanaPrincipal);
     }
 
     /**
@@ -43,6 +42,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jR_2Jugadores = new javax.swing.JRadioButton();
         jB_Batalla = new javax.swing.JButton();
         jBChat = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jM_Archivo = new javax.swing.JMenu();
@@ -59,13 +59,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jR_1Jugador.setForeground(new java.awt.Color(255, 255, 255));
         jR_1Jugador.setText("1 Jugador");
         getContentPane().add(jR_1Jugador);
-        jR_1Jugador.setBounds(30, 150, 109, 30);
+        jR_1Jugador.setBounds(30, 150, 105, 30);
 
         jR_2Jugadores.setFont(new java.awt.Font("Pokemon Solid", 0, 18)); // NOI18N
         jR_2Jugadores.setForeground(new java.awt.Color(255, 255, 255));
         jR_2Jugadores.setText("2 Jugadores");
         getContentPane().add(jR_2Jugadores);
-        jR_2Jugadores.setBounds(30, 190, 130, 35);
+        jR_2Jugadores.setBounds(30, 190, 130, 33);
 
         jB_Batalla.setFont(new java.awt.Font("Pokemon Solid", 0, 24)); // NOI18N
         jB_Batalla.setForeground(new java.awt.Color(255, 255, 255));
@@ -77,7 +77,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jBChat.setForeground(new java.awt.Color(255, 255, 255));
         jBChat.setText("Chat");
         getContentPane().add(jBChat);
-        jBChat.setBounds(350, 270, 129, 35);
+        jBChat.setBounds(350, 270, 129, 33);
+
+        jButton1.setText("Server");
+        getContentPane().add(jButton1);
+        jButton1.setBounds(410, 250, 65, 23);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -158,6 +162,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBChat;
     private javax.swing.JButton jB_Batalla;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jM_Archivo;
     private javax.swing.JMenuItem jM_Crear_Entrenador;
