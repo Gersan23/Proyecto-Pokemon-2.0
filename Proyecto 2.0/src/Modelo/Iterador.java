@@ -18,11 +18,14 @@ import java.util.logging.Logger;
  * @author User
  */
 public class Iterador implements Iterator {
- BufferedReader br;
+ 
+    BufferedReader br;
     boolean finaliced;
+    String path;
 
     public Iterador(String path) {
-        finaliced = false;
+        this.path=path;
+        finaliced = true;
         try {
             read_file(path);
         } catch (FileNotFoundException ex) {
@@ -43,13 +46,8 @@ public class Iterador implements Iterator {
     private String get_new_line() {
         String strLine = null;
         try {
-            
-          
             if(!finaliced)
             strLine = br.readLine();
-            
-            
-            
         } catch (IOException ex) {
             strLine=null;
         }
@@ -65,6 +63,7 @@ public class Iterador implements Iterator {
             if (strLine == null) {
                 finaliced = true;
                 closeBuffer();
+                strLine=null;
             }
         }
         return strLine;
