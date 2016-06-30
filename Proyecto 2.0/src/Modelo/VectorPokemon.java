@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 import imagenes.DevuelveImagen;
 import Modelo.Pokemon;
 import java.util.ArrayList;
+import java.util.Random;
 
 
 /**
@@ -19,32 +20,46 @@ import java.util.ArrayList;
 public class VectorPokemon {
       private Pokemon vectorPoke[];
     DevuelveImagen imagen= new DevuelveImagen();
-    private String [] infoPokemon;  
+    //private String [] infoPokemon;  
     private ArrayList<Pokemon> arrayPoke=new ArrayList<>();
     private Pokemon poke;
     private int entero;
+    int contador =0;
+     String aux4="";
+    Iterador iteradorPokemon =new Iterador ("POKEHOLIC.txt");
     public VectorPokemon(){
        inicializarPokemon();
-       infoPokemon= new String [151];
+       
         
     }
     public Pokemon poke(int posicion){
+        System.out.println("poss"+posicion);
         return arrayPoke.get(posicion);
     }
     
     public void inicializarPokemon(){//buscar metodo 
-       Iterador iteradorPokemon =new Iterador ("POKEHOLIC.txt");
-       
+        String aux;
         while(iteradorPokemon.hasNext()){
-            infoPokemon=((String)iteradorPokemon.next()).split(";");
-            //ARREGLO PARA METER POSICIONES EN EL XML
-            //System.out.println("spli"+ infoPokemon[0]+infoPokemon[1]);
-            if(!infoPokemon[0].equals("")){
-                poke=new Pokemon(infoPokemon[0], 2, infoPokemon[1], imagen.inicializarPokemon(Integer.parseInt(infoPokemon[1])), infoPokemon[2]);
-                arrayPoke.add(poke); 
+            contador++;
+           aux=(String)iteradorPokemon.next();
+           if(aux!=null){
+            String [] infoPokemon=aux.split("/");
+            String aux5=infoPokemon[2];
+            String aux3 []=aux5.split("-");
+            for(int i=0;i<aux3.length;i++){
+                aux4+= aux3[i]+"\n";
             }
-            
+              poke=new Pokemon(infoPokemon[0],ramndom(), infoPokemon[1], imagen.inicializarPokemon(Integer.parseInt(infoPokemon[1])), aux4);
+              aux4="";
+              arrayPoke.add(poke); 
+           }
         }
+    }
+    //METER UN NUEVO ATRIBUTO VIDA QUE TENGA 100
+    public int ramndom(){//valores entre 15 - 100
+        Random r = new Random();
+        int valorDado = r.nextInt(100);
+        return valorDado;
     }
     
     public int getTamano(){

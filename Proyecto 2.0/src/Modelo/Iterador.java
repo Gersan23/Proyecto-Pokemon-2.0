@@ -25,7 +25,7 @@ public class Iterador implements Iterator {
 
     public Iterador(String path) {
         this.path=path;
-        finaliced = true;
+        finaliced = false;
         try {
             read_file(path);
         } catch (FileNotFoundException ex) {
