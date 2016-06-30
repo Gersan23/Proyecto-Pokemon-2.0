@@ -92,9 +92,25 @@ public class ControladorVentanaCreadorEntrenador implements ActionListener {
     }
     public void modificar()
     {
-        Entrenador entrenador = registroEntrenador.getObjeto(ventanaCreador.getjT_Codigo());
-        entrenador.setPokemon1(ventanaCreador.getjC_Pokemon1());
-        entrenador.setPokemon2(ventanaCreador.getjC_Pokemon2());
-        entrenador.setPokemon3(ventanaCreador.getjC_Pokemon3());
+        System.out.println("entrexD");
+        if (registroEntrenador.verificarEntrenador(ventanaCreador.getjT_CodigoBuscar())==true){
+            JOptionPane.showMessageDialog(null,"Ingrese el codigo del entrenador que desea modificar");
+        
+        }
+        entrenador=registroEntrenador.getObjeto(ventanaCreador.getjT_CodigoBuscar());
+        if(entrenador==null)
+        {
+            JOptionPane.showMessageDialog(null,"No se encontro el entrenador con el codigo ingresado");
+        }
+        ventanaCreador.getjT_CodigoBuscar();
+        
+
+          entrenador.setPokemon1(ventanaCreador.getjC_Pokemon1());
+          entrenador.setPokemon2(ventanaCreador.getjC_Pokemon2());
+          entrenador.setPokemon3(ventanaCreador.getjC_Pokemon3());
+          registroEntrenador.modificar(entrenador);
+          limpiar();
+          JOptionPane.showMessageDialog(null,"Entrenador modificado correctamente");
+           JOptionPane.showMessageDialog(null,"Sus nuevos pokemones son: "+"\nPokemon 1: "+entrenador.getPokemon1()+"\nPokemon 2: "+entrenador.getPokemon2()+"\nPokemon 3: "+entrenador.getPokemon3());
     }
 }

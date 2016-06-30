@@ -18,8 +18,8 @@ import javax.swing.JOptionPane;
 public class ServerPrivado implements Runnable {
 
 
-    private final int puerto = 2028;
-    private final int noConexiones = 2;
+    private final int puerto = 2027;
+    private final int noConexiones = 3;
    
     private ArrayList<Socket> usuarios = new ArrayList<Socket>();
        

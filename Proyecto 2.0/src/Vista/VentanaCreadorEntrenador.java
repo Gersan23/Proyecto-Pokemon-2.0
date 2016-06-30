@@ -39,6 +39,9 @@ public class VentanaCreadorEntrenador extends javax.swing.JFrame {
     public void limpiar(String usuario, String codigo ){
         jT_Usuario.setText(usuario);
         jT_Codigo.setText(codigo);
+        jC_Pokemon1.setSelectedIndex(0);
+        jC_Pokemon2.setSelectedIndex(0);
+        jC_Pokemon3.setSelectedIndex(0);
     }
     public void agregarEscuchador(ActionListener manejador){
         jB_Borrar.addActionListener(manejador);

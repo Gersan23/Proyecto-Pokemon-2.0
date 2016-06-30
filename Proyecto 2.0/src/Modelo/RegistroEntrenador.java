@@ -134,5 +134,16 @@ public class RegistroEntrenador {
         }
         return existe;
     }
+    public void modificar(Entrenador entrenador)
+    {
+        for(int i=0;i<array.size();i++){
+            if(entrenador.getCodigoDeEntrenador().equals(entrenador.getCodigoDeEntrenador()))
+            {
+                entrenador.setPokemon1(entrenador.getPokemon1());
+                entrenador.setPokemon2(entrenador.getPokemon2());
+                entrenador.setPokemon3(entrenador.getPokemon3());
+            }
+        }
+    }
     
 }
