@@ -23,6 +23,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         this.jM_Ver.addActionListener(cVentanaPrincipal);
         this.jB_Batalla.addActionListener(cVentanaPrincipal);
         this.jBChat.addActionListener(cVentanaPrincipal);
+        jB_Batalla.setContentAreaFilled(false);
+        jBChat.setContentAreaFilled(false);
         serverP = new ServerPrivado();
         Thread servidorP = new Thread(serverP);
         servidorP.start();
@@ -41,6 +43,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jR_2Jugadores = new javax.swing.JRadioButton();
         jB_Batalla = new javax.swing.JButton();
         jBChat = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jM_Archivo = new javax.swing.JMenu();
         jM_Entrenador = new javax.swing.JMenu();
@@ -50,14 +53,35 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jM_Ver = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
+        jR_1Jugador.setFont(new java.awt.Font("Pokemon Solid", 0, 18)); // NOI18N
+        jR_1Jugador.setForeground(new java.awt.Color(255, 255, 255));
         jR_1Jugador.setText("1 Jugador");
+        getContentPane().add(jR_1Jugador);
+        jR_1Jugador.setBounds(30, 150, 109, 30);
 
+        jR_2Jugadores.setFont(new java.awt.Font("Pokemon Solid", 0, 18)); // NOI18N
+        jR_2Jugadores.setForeground(new java.awt.Color(255, 255, 255));
         jR_2Jugadores.setText("2 Jugadores");
+        getContentPane().add(jR_2Jugadores);
+        jR_2Jugadores.setBounds(30, 190, 130, 35);
 
+        jB_Batalla.setFont(new java.awt.Font("Pokemon Solid", 0, 24)); // NOI18N
+        jB_Batalla.setForeground(new java.awt.Color(255, 255, 255));
         jB_Batalla.setText("Batalla");
+        getContentPane().add(jB_Batalla);
+        jB_Batalla.setBounds(170, 160, 145, 59);
 
+        jBChat.setFont(new java.awt.Font("Pokemon Solid", 0, 18)); // NOI18N
+        jBChat.setForeground(new java.awt.Color(255, 255, 255));
         jBChat.setText("Chat");
+        getContentPane().add(jBChat);
+        jBChat.setBounds(350, 270, 129, 35);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo.jpg"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 480, 300);
 
         jM_Archivo.setText("Archivo");
         jMenuBar1.add(jM_Archivo);
@@ -85,36 +109,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jM_Pokedex);
 
         setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jR_2Jugadores)
-                    .addComponent(jR_1Jugador))
-                .addGap(99, 99, 99)
-                .addComponent(jB_Batalla, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(242, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jBChat, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(131, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jB_Batalla, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jR_1Jugador)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jR_2Jugadores)))
-                .addGap(91, 91, 91)
-                .addComponent(jBChat))
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -164,6 +158,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBChat;
     private javax.swing.JButton jB_Batalla;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jM_Archivo;
     private javax.swing.JMenuItem jM_Crear_Entrenador;
     private javax.swing.JMenu jM_Entrenador;

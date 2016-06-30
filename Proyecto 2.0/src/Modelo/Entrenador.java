@@ -83,7 +83,7 @@ public class Entrenador {
     
     public String getInformacion()
     {  
-    String msj="";
+    String msj= "";
     return msj;
     }
    }

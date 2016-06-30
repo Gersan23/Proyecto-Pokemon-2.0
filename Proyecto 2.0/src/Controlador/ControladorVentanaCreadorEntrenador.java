@@ -39,7 +39,7 @@ public class ControladorVentanaCreadorEntrenador implements ActionListener {
             eliminar();
         }
         if (e.getActionCommand().equalsIgnoreCase("Modificar")) {
-
+            modificar();
         }
         if (e.getActionCommand().equalsIgnoreCase("Buscar")) {
             buscar();
@@ -89,5 +89,12 @@ public class ControladorVentanaCreadorEntrenador implements ActionListener {
             JOptionPane.showMessageDialog(null, "No existe entrenador  registrado con codigo ingresado, por favor verifique");
             limpiar();
         }
+    }
+    public void modificar()
+    {
+        Entrenador entrenador = registroEntrenador.getObjeto(ventanaCreador.getjT_Codigo());
+        entrenador.setPokemon1(ventanaCreador.getjC_Pokemon1());
+        entrenador.setPokemon2(ventanaCreador.getjC_Pokemon2());
+        entrenador.setPokemon3(ventanaCreador.getjC_Pokemon3());
     }
 }

@@ -36,64 +36,40 @@ public class VentanaBatalla extends javax.swing.JFrame {
         jL_AtaqueR1 = new javax.swing.JLabel();
         jL_AtaqueR2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+
+        getContentPane().setLayout(null);
+        getContentPane().add(jL_Pokemon1);
+        jL_Pokemon1.setBounds(132, 73, 81, 66);
+        getContentPane().add(jL_Pokedex);
+        jL_Pokedex.setBounds(397, 73, 83, 66);
 
         jT_Chat.setColumns(20);
         jT_Chat.setRows(5);
         jScrollPane1.setViewportView(jT_Chat);
 
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(46, 193, 542, 96);
+
         jL_Ataque1.setText("Ataque:");
+        getContentPane().add(jL_Ataque1);
+        jL_Ataque1.setBounds(76, 161, 39, 14);
 
         jL_AtaqueR1.setText("0");
+        getContentPane().add(jL_AtaqueR1);
+        jL_AtaqueR1.setBounds(150, 161, 44, 14);
 
         jL_AtaqueR2.setText("0");
+        getContentPane().add(jL_AtaqueR2);
+        jL_AtaqueR2.setBounds(397, 161, 44, 14);
 
         jLabel1.setText("Ataque:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(482, 161, 39, 14);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addComponent(jL_AtaqueR1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(132, 132, 132)
-                        .addComponent(jL_Pokemon1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addComponent(jL_Ataque1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jL_Pokedex, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jL_AtaqueR2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(jLabel1)))
-                .addGap(113, 113, 113))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jL_Pokemon1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jL_Pokedex, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jL_Ataque1)
-                    .addComponent(jL_AtaqueR1)
-                    .addComponent(jL_AtaqueR2)
-                    .addComponent(jLabel1))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pokemon_x_and_y_battle_background_10_by_phoenixoflight92-d843fov.png"))); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 0, 630, 300);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -140,6 +116,7 @@ public class VentanaBatalla extends javax.swing.JFrame {
     private javax.swing.JLabel jL_Pokedex;
     private javax.swing.JLabel jL_Pokemon1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jT_Chat;
     // End of variables declaration//GEN-END:variables
