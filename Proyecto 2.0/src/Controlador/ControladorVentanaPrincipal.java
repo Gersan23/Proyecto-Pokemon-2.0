@@ -36,7 +36,7 @@ public class ControladorVentanaPrincipal implements ActionListener {
         ventanaC = new VentanaCreadorEntrenador(registro);
 
         ventanaP = new VentanaPokedex();
-        ventanaB = new VentanaBatalla();
+        
         server = new ServerPrivado();
     }
 
@@ -54,7 +54,9 @@ public class ControladorVentanaPrincipal implements ActionListener {
             ventanaP.show();
         }
         if (e.getActionCommand().equalsIgnoreCase("Batalla")) {
+            ventanaB = new VentanaBatalla();           
             ventanaB.show();
+            ventanaB.llenarComboBox(registro);
         }
         if (e.getActionCommand().equalsIgnoreCase("Chat")) {
             ventanaChat = new FramePrivado();

@@ -5,6 +5,8 @@
  */
 package Vista;
 
+import Modelo.RegistroEntrenador;
+
 /**
  *
  * @author Gersan
@@ -19,7 +21,16 @@ public class VentanaBatalla extends javax.swing.JFrame {
         this.setTitle("Batalla");
         setSize(650,340);
         setLocationRelativeTo(null);
+        RegistroEntrenador array = new RegistroEntrenador();
     }
+    
+    
+    public void llenarComboBox(RegistroEntrenador array) {//llenar la lista de combobox
+        jComboBoxJugadores.removeAllItems();
+        for(int i = 0; i < array.getTamano(); i++) {
+                jComboBoxJugadores.addItem(array.getObjeto(i).getUsuario());
+        }
+    }    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -39,7 +50,10 @@ public class VentanaBatalla extends javax.swing.JFrame {
         jL_AtaqueR2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jComboBoxJugadores = new javax.swing.JComboBox<>();
+        jLabelEntrenadores = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 255, 255));
         getContentPane().setLayout(null);
         getContentPane().add(jL_Pokemon1);
         jL_Pokemon1.setBounds(132, 73, 81, 66);
@@ -51,30 +65,47 @@ public class VentanaBatalla extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jT_Chat);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(46, 193, 542, 96);
+        jScrollPane1.setBounds(46, 193, 542, 78);
 
         jL_Ataque1.setText("Ataque:");
         getContentPane().add(jL_Ataque1);
-        jL_Ataque1.setBounds(76, 161, 39, 14);
+        jL_Ataque1.setBounds(76, 161, 38, 15);
 
         jL_AtaqueR1.setText("0");
         getContentPane().add(jL_AtaqueR1);
-        jL_AtaqueR1.setBounds(150, 161, 44, 14);
+        jL_AtaqueR1.setBounds(150, 160, 44, 15);
 
         jL_AtaqueR2.setText("0");
         getContentPane().add(jL_AtaqueR2);
-        jL_AtaqueR2.setBounds(397, 161, 44, 14);
+        jL_AtaqueR2.setBounds(397, 161, 44, 15);
 
         jLabel1.setText("Ataque:");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(482, 161, 39, 14);
+        jLabel1.setBounds(482, 161, 38, 15);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pokemon_x_and_y_battle_background_10_by_phoenixoflight92-d843fov.png"))); // NOI18N
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 0, 630, 300);
+        jLabel2.setBounds(10, 90, 630, 300);
+
+        jComboBoxJugadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxJugadores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxJugadoresActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jComboBoxJugadores);
+        jComboBoxJugadores.setBounds(50, 50, 180, 24);
+
+        jLabelEntrenadores.setText("Entrenadores");
+        getContentPane().add(jLabelEntrenadores);
+        jLabelEntrenadores.setBounds(50, 20, 180, 20);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jComboBoxJugadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxJugadoresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxJugadoresActionPerformed
 
     /**
      * @param args the command line arguments
@@ -112,6 +143,7 @@ public class VentanaBatalla extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> jComboBoxJugadores;
     private javax.swing.JLabel jL_Ataque1;
     private javax.swing.JLabel jL_AtaqueR1;
     private javax.swing.JLabel jL_AtaqueR2;
@@ -119,6 +151,7 @@ public class VentanaBatalla extends javax.swing.JFrame {
     private javax.swing.JLabel jL_Pokemon1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabelEntrenadores;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jT_Chat;
     // End of variables declaration//GEN-END:variables
