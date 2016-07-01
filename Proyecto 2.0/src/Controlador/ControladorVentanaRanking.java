@@ -37,7 +37,7 @@ public class ControladorVentanaRanking implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         System.out.println("activa el ranking entrando");
         //ventanaR.llenarComboBox(array);
-        
+       
     }
     
     public void numerosRanking(){

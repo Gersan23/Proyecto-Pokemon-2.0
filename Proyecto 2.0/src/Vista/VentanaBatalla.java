@@ -4,15 +4,24 @@
  * and open the template in the editor.
  */
 package Vista;
-
+import Modelo.VectorPokemon;
 import Modelo.RegistroEntrenador;
+import java.awt.Image;
+import java.util.Random;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
 
 /**
  *
  * @author Gersan
  */
 public class VentanaBatalla extends javax.swing.JFrame {
-
+    private VectorPokemon pokemonVect;
+    
+    
     /**
      * Creates new form VentanaBatalla
      */
@@ -32,6 +41,57 @@ public class VentanaBatalla extends javax.swing.JFrame {
         }
     }    
 
+    public JComboBox getjComboBoxJugadores() {
+        return jComboBoxJugadores;
+    }
+
+    public JLabel getjL_AtaqueR1() {
+        return jL_AtaqueR1;
+    }
+
+    public JLabel getjL_AtaqueR2() {
+        return jL_AtaqueR2;
+    }
+
+    public JLabel getjL_Pokemon1() {
+        return jL_Pokemon1;
+    }
+
+    public JLabel getjL_Pokemon2() {
+        return jL_Pokemon2;
+    }
+
+    public void setjL_AtaqueR1(int ataqueR1) {
+        jL_AtaqueR1.setText(ataqueR1+"");
+    }
+
+   public void setjL_AtaqueR2(int ataqueR2) {
+        jL_AtaqueR2.setText(ataqueR2+"");
+    }
+
+   public void agregarImagen1(int i){
+        
+        pokemonVect.poke(i);
+        
+        Image image=pokemonVect.poke(i).getImagen();
+        Icon icon= new ImageIcon(image);
+        jL_Pokemon1.setIcon(icon);
+        
+    }
+    public void agregarImagen2(int i){
+        
+        pokemonVect.poke(i);
+        
+        Image image=pokemonVect.poke(i).getImagen();
+        Icon icon= new ImageIcon(image);
+        jL_Pokemon2.setIcon(icon);
+        
+    }
+
+    public void setjT_Chat(String mensaje) {
+        jT_Chat.setText(mensaje);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,24 +101,26 @@ public class VentanaBatalla extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel2 = new javax.swing.JLabel();
         jL_Pokemon1 = new javax.swing.JLabel();
-        jL_Pokedex = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jT_Chat = new javax.swing.JTextArea();
+        jL_Pokemon2 = new javax.swing.JLabel();
         jL_Ataque1 = new javax.swing.JLabel();
         jL_AtaqueR1 = new javax.swing.JLabel();
         jL_AtaqueR2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jComboBoxJugadores = new javax.swing.JComboBox<>();
         jLabelEntrenadores = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLFotoPoke2 = new javax.swing.JLabel();
+
+        jLabel2.setText("CPU");
 
         setBackground(new java.awt.Color(204, 255, 255));
         getContentPane().setLayout(null);
         getContentPane().add(jL_Pokemon1);
-        jL_Pokemon1.setBounds(130, 80, 81, 66);
-        getContentPane().add(jL_Pokedex);
-        jL_Pokedex.setBounds(397, 73, 83, 66);
+        jL_Pokemon1.setBounds(80, 90, 81, 66);
 
         jT_Chat.setColumns(20);
         jT_Chat.setRows(5);
@@ -66,6 +128,8 @@ public class VentanaBatalla extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(46, 193, 542, 96);
+        getContentPane().add(jL_Pokemon2);
+        jL_Pokemon2.setBounds(450, 90, 83, 66);
 
         jL_Ataque1.setText("Ataque:");
         getContentPane().add(jL_Ataque1);
@@ -77,7 +141,7 @@ public class VentanaBatalla extends javax.swing.JFrame {
 
         jL_AtaqueR2.setText("0");
         getContentPane().add(jL_AtaqueR2);
-        jL_AtaqueR2.setBounds(397, 161, 44, 14);
+        jL_AtaqueR2.setBounds(430, 160, 44, 14);
 
         jLabel1.setText("Ataque:");
         getContentPane().add(jLabel1);
@@ -96,9 +160,14 @@ public class VentanaBatalla extends javax.swing.JFrame {
         getContentPane().add(jLabelEntrenadores);
         jLabelEntrenadores.setBounds(50, 20, 180, 20);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pokemon_x_and_y_battle_background_10_by_phoenixoflight92-d843fov.png"))); // NOI18N
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(10, 0, 630, 300);
+        jLabel3.setText("CPU");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(560, 160, 30, 14);
+
+        jLFotoPoke2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pokemon_x_and_y_battle_background_10_by_phoenixoflight92-d843fov.png"))); // NOI18N
+        jLFotoPoke2.setText("CPU");
+        getContentPane().add(jLFotoPoke2);
+        jLFotoPoke2.setBounds(0, 0, 630, 300);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -144,13 +213,15 @@ public class VentanaBatalla extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jComboBoxJugadores;
+    private javax.swing.JLabel jLFotoPoke2;
     private javax.swing.JLabel jL_Ataque1;
     private javax.swing.JLabel jL_AtaqueR1;
     private javax.swing.JLabel jL_AtaqueR2;
-    private javax.swing.JLabel jL_Pokedex;
     private javax.swing.JLabel jL_Pokemon1;
+    private javax.swing.JLabel jL_Pokemon2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelEntrenadores;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jT_Chat;

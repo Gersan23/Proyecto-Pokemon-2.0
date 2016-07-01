@@ -56,7 +56,7 @@ public class ControladorVentanaCreadorEntrenador implements ActionListener {
         String pokemon1 = ventanaCreador.getjC_Pokemon1();
         String pokemon2 = ventanaCreador.getjC_Pokemon2();
         String pokemon3 = ventanaCreador.getjC_Pokemon3();
-        entrenador = new Entrenador(ventanaCreador.getjT_Usuario(), ventanaCreador.getjT_Codigo(), 0, 0, ventanaCreador.getjC_Pokemon1(), ventanaCreador.getjC_Pokemon3(), ventanaCreador.getjC_Pokemon3());
+        entrenador = new Entrenador(ventanaCreador.getjT_Usuario(), ventanaCreador.getjT_Codigo(), 0, 0, ventanaCreador.getjC_Pokemon1(), ventanaCreador.getjC_Pokemon2(), ventanaCreador.getjC_Pokemon3());
         System.out.println(registroEntrenador.getTamano());
         if (registroEntrenador.getTamano() != 0) {
             System.out.println("lista con datos");

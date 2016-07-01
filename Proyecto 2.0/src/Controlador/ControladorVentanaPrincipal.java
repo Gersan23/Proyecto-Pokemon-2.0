@@ -16,6 +16,7 @@ import Vista.VentanaBatalla;
 import Vista.FramePrivado;
 import javax.swing.JOptionPane;
 import Modelo.ServerPrivado;
+import Vista.VentanaPrincipal;
 
 /**
  *
@@ -30,7 +31,7 @@ public class ControladorVentanaPrincipal implements ActionListener {
     private RegistroEntrenador registro;
     private FramePrivado ventanaChat;
     private ServerPrivado server;
-
+    private VentanaPrincipal ventanaPrin;
     public ControladorVentanaPrincipal() {
         registro = new RegistroEntrenador();
         ventanaC = new VentanaCreadorEntrenador(registro);
@@ -42,7 +43,7 @@ public class ControladorVentanaPrincipal implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equalsIgnoreCase("Crear Entrenador")) {
-
+           
             ventanaC.show();
         }
         if (e.getActionCommand().equalsIgnoreCase("Ranking")) {
@@ -56,7 +57,7 @@ public class ControladorVentanaPrincipal implements ActionListener {
         if (e.getActionCommand().equalsIgnoreCase("Batalla")) {
             ventanaB = new VentanaBatalla();           
             ventanaB.show();
-            ventanaB.llenarComboBox(registro);
+             ventanaB.llenarComboBox(registro);
         }
         if (e.getActionCommand().equalsIgnoreCase("Chat")) {
             ventanaChat = new FramePrivado();
@@ -67,5 +68,7 @@ public class ControladorVentanaPrincipal implements ActionListener {
             Thread servidorP = new Thread(server);
             servidorP.start();
         }
+        
+        
     }
 }

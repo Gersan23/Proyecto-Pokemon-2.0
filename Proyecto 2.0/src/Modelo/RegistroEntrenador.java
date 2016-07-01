@@ -21,7 +21,7 @@ public class RegistroEntrenador {
   public RegistroEntrenador()
   {
     array=new ArrayList<Entrenador>();
-    Entrenador computadora = new Entrenador("CPU", "0000", 2, 1, "Venusaur", "Blastoise", "Charizard");
+    Entrenador computadora = new Entrenador("CPU", "1234", 2, 1, "Venusaur", "Blastoise", "Charizard");
     setObjeto(computadora);
   }
   

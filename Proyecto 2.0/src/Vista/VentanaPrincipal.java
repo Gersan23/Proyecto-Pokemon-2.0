@@ -6,11 +6,13 @@
 package Vista;
 import Modelo.ServerPrivado;
 import Controlador.ControladorVentanaPrincipal;
+import Modelo.RegistroEntrenador;
  
 
 public class VentanaPrincipal extends javax.swing.JFrame {
     private ControladorVentanaPrincipal cVentanaPrincipal;
     private ServerPrivado serverP;
+    private RegistroEntrenador registro;
     /**
      * Creates new form NewJFrame
      */
@@ -30,7 +32,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         setSize(497,359);
         setLocationRelativeTo(null);
     }
-
+       
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
