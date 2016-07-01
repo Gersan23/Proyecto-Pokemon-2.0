@@ -13,6 +13,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
+import Controlador.ControladorVentanaBatalla;
 
 /**
  *
@@ -20,7 +21,7 @@ import javax.swing.JTextArea;
  */
 public class VentanaBatalla extends javax.swing.JFrame {
     private VectorPokemon pokemonVect;
-    
+    private ControladorVentanaBatalla control;
     
     /**
      * Creates new form VentanaBatalla
@@ -31,6 +32,8 @@ public class VentanaBatalla extends javax.swing.JFrame {
         setSize(650,340);
         setLocationRelativeTo(null);
         RegistroEntrenador array = new RegistroEntrenador();
+        control = new ControladorVentanaBatalla(this, array);
+        jBListo.addActionListener(control);
     }
     
     
@@ -113,6 +116,7 @@ public class VentanaBatalla extends javax.swing.JFrame {
         jComboBoxJugadores = new javax.swing.JComboBox<>();
         jLabelEntrenadores = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jBListo = new javax.swing.JButton();
         jLFotoPoke2 = new javax.swing.JLabel();
 
         jLabel2.setText("CPU");
@@ -164,6 +168,10 @@ public class VentanaBatalla extends javax.swing.JFrame {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(560, 160, 30, 14);
 
+        jBListo.setText("Listo");
+        getContentPane().add(jBListo);
+        jBListo.setBounds(560, 0, 55, 23);
+
         jLFotoPoke2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pokemon_x_and_y_battle_background_10_by_phoenixoflight92-d843fov.png"))); // NOI18N
         jLFotoPoke2.setText("CPU");
         getContentPane().add(jLFotoPoke2);
@@ -212,6 +220,7 @@ public class VentanaBatalla extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBListo;
     private javax.swing.JComboBox<String> jComboBoxJugadores;
     private javax.swing.JLabel jLFotoPoke2;
     private javax.swing.JLabel jL_Ataque1;

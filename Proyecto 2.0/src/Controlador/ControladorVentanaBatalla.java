@@ -28,18 +28,16 @@ public class ControladorVentanaBatalla implements ActionListener {
 
     public ControladorVentanaBatalla(VentanaBatalla ventanaB, RegistroEntrenador array) {
         this.ventanaBatalla = ventanaB;
-        this.array = array;
-        ventanaBatalla.llenarComboBox(array);
-        lucha();
+        this.array = array;       
     }
 
-    /*public void actionPerformed(ActionEvent e){
-        if(e.getActionCommand().equalsIgnoreCase("Batalla")){
-            
-        }*/
-    @Override
+    
     public void actionPerformed(ActionEvent e) {
-        lucha();
+        if(e.getActionCommand().equalsIgnoreCase("Listo")){
+            JOptionPane.showMessageDialog(null, "Hola");
+            lucha();
+        }
+        
     }
 
     public void lucha() {
