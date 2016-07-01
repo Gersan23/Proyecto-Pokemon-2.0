@@ -4,22 +4,25 @@
  * and open the template in the editor.
  */
 package Vista;
+
 import Modelo.ServerPrivado;
 import Controlador.ControladorVentanaPrincipal;
 import Modelo.RegistroEntrenador;
- 
+import java.applet.AudioClip;
 
 public class VentanaPrincipal extends javax.swing.JFrame {
+
     private ControladorVentanaPrincipal cVentanaPrincipal;
     private ServerPrivado serverP;
     private RegistroEntrenador registro;
+
     /**
      * Creates new form NewJFrame
      */
     public VentanaPrincipal() {
         initComponents();
         this.setTitle("Pokémon");
-        this.cVentanaPrincipal= new ControladorVentanaPrincipal();
+        this.cVentanaPrincipal = new ControladorVentanaPrincipal();
         this.jM_Crear_Entrenador.addActionListener(cVentanaPrincipal);
         this.jM_Ranking.addActionListener(cVentanaPrincipal);
         this.jM_Ver.addActionListener(cVentanaPrincipal);
@@ -29,10 +32,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jBChat.setContentAreaFilled(false);
         jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(cVentanaPrincipal);
-        setSize(497,359);
-        setLocationRelativeTo(null);
+        setSize(497, 359);
+        setLocationRelativeTo(null);       
+        //reproducir();
     }
-       
+
+    public void reproducir() {
+        AudioClip sonido;
+        sonido = java.applet.Applet.newAudioClip(getClass().getResource("pokemon.WAV"));
+        sonido.play();
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -152,15 +162,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new VentanaPrincipal().setVisible(true);
-                
+                AudioClip sonido;
+        sonido = java.applet.Applet.newAudioClip(getClass().getResource("pokemon.WAV"));
+        sonido.play();
             }
         });
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
