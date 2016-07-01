@@ -49,14 +49,14 @@ public class VentanaBatalla extends javax.swing.JFrame {
         jL_AtaqueR1 = new javax.swing.JLabel();
         jL_AtaqueR2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jComboBoxJugadores = new javax.swing.JComboBox<>();
         jLabelEntrenadores = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 255, 255));
         getContentPane().setLayout(null);
         getContentPane().add(jL_Pokemon1);
-        jL_Pokemon1.setBounds(132, 73, 81, 66);
+        jL_Pokemon1.setBounds(130, 80, 81, 66);
         getContentPane().add(jL_Pokedex);
         jL_Pokedex.setBounds(397, 73, 83, 66);
 
@@ -65,27 +65,23 @@ public class VentanaBatalla extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jT_Chat);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(46, 193, 542, 78);
+        jScrollPane1.setBounds(46, 193, 542, 96);
 
         jL_Ataque1.setText("Ataque:");
         getContentPane().add(jL_Ataque1);
-        jL_Ataque1.setBounds(76, 161, 38, 15);
+        jL_Ataque1.setBounds(76, 161, 39, 14);
 
         jL_AtaqueR1.setText("0");
         getContentPane().add(jL_AtaqueR1);
-        jL_AtaqueR1.setBounds(150, 160, 44, 15);
+        jL_AtaqueR1.setBounds(150, 160, 44, 14);
 
         jL_AtaqueR2.setText("0");
         getContentPane().add(jL_AtaqueR2);
-        jL_AtaqueR2.setBounds(397, 161, 44, 15);
+        jL_AtaqueR2.setBounds(397, 161, 44, 14);
 
         jLabel1.setText("Ataque:");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(482, 161, 38, 15);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pokemon_x_and_y_battle_background_10_by_phoenixoflight92-d843fov.png"))); // NOI18N
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(10, 90, 630, 300);
+        jLabel1.setBounds(482, 161, 39, 14);
 
         jComboBoxJugadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBoxJugadores.addActionListener(new java.awt.event.ActionListener() {
@@ -94,11 +90,15 @@ public class VentanaBatalla extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jComboBoxJugadores);
-        jComboBoxJugadores.setBounds(50, 50, 180, 24);
+        jComboBoxJugadores.setBounds(50, 50, 180, 20);
 
         jLabelEntrenadores.setText("Entrenadores");
         getContentPane().add(jLabelEntrenadores);
         jLabelEntrenadores.setBounds(50, 20, 180, 20);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pokemon_x_and_y_battle_background_10_by_phoenixoflight92-d843fov.png"))); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(10, 0, 630, 300);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
