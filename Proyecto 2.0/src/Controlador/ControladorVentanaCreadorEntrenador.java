@@ -83,8 +83,10 @@ public class ControladorVentanaCreadorEntrenador implements ActionListener {
 
     public void buscar() {
         if (registroEntrenador.verificarEntrenador(ventanaCreador.getjT_CodigoBuscar())) {
+            JOptionPane.showMessageDialog(null,"Usuario: "+entrenador.getUsuario() +"\n Codigo: "+entrenador.getCodigoDeEntrenador()+"\nPokemon 1: " +entrenador.getPokemon1()+"\nPokemon 2: " +entrenador.getPokemon2()+"\nPokemon 3: " +entrenador.getPokemon3());
             JOptionPane.showMessageDialog(null, "Informacion\n" +registroEntrenador.imprimir(ventanaCreador.getjT_CodigoBuscar() + ""));
             limpiar();
+            
         } else {
             JOptionPane.showMessageDialog(null, "No existe entrenador  registrado con codigo ingresado, por favor verifique");
             limpiar();
@@ -92,7 +94,6 @@ public class ControladorVentanaCreadorEntrenador implements ActionListener {
     }
     public void modificar()
     {
-        System.out.println("entrexD");
         if (registroEntrenador.verificarEntrenador(ventanaCreador.getjT_CodigoBuscar())==true){
             JOptionPane.showMessageDialog(null,"Ingrese el codigo del entrenador que desea modificar");
         
@@ -103,14 +104,16 @@ public class ControladorVentanaCreadorEntrenador implements ActionListener {
             JOptionPane.showMessageDialog(null,"No se encontro el entrenador con el codigo ingresado");
         }
         ventanaCreador.getjT_CodigoBuscar();
-        
-
+          entrenador.setUsuario(ventanaCreador.getjT_Usuario());
           entrenador.setPokemon1(ventanaCreador.getjC_Pokemon1());
           entrenador.setPokemon2(ventanaCreador.getjC_Pokemon2());
           entrenador.setPokemon3(ventanaCreador.getjC_Pokemon3());
+          
+          
+          
           registroEntrenador.modificar(entrenador);
           limpiar();
-          JOptionPane.showMessageDialog(null,"Entrenador modificado correctamente");
+          //JOptionPane.showMessageDialog(null,"Entrenador modificado correctamente");
            JOptionPane.showMessageDialog(null,"Sus nuevos pokemones son: "+"\nPokemon 1: "+entrenador.getPokemon1()+"\nPokemon 2: "+entrenador.getPokemon2()+"\nPokemon 3: "+entrenador.getPokemon3());
     }
 }

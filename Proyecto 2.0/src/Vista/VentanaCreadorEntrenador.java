@@ -168,9 +168,7 @@ public class VentanaCreadorEntrenador extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jL_Pokemon3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addComponent(jL_Pokemon3)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jL_Pokemon2)
                                 .addGap(164, 164, 164)))))
@@ -224,6 +222,9 @@ public class VentanaCreadorEntrenador extends javax.swing.JFrame {
 
     private void jB_ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_ModificarActionPerformed
         // TODO add your handling code here:
+        
+        ControladorVentanaCreadorEntrenador control=new ControladorVentanaCreadorEntrenador(this, registro);
+        control.modificar();
     }//GEN-LAST:event_jB_ModificarActionPerformed
 
     /**
@@ -292,7 +293,7 @@ public class VentanaCreadorEntrenador extends javax.swing.JFrame {
     public String getjC_Pokemon3() {
         return (String) jC_Pokemon3.getSelectedItem();
     }
-
+   
     public String getjT_Codigo() {
         return jT_Codigo.getText();
     }
