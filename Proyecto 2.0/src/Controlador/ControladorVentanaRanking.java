@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import Modelo.RegistroEntrenador;
 import Vista.VentanaPokedex;
+import java.util.ArrayList;
 import javax.swing.JComboBox;
 /**
  *
@@ -19,8 +20,11 @@ public class ControladorVentanaRanking implements ActionListener {
     VentanaRanking ventanaR;
     RegistroEntrenador array;
     JComboBox combo;
-    public ControladorVentanaRanking(VentanaRanking ventanaP){
+    public ControladorVentanaRanking(VentanaRanking ventanaP,RegistroEntrenador array){
         ventanaR = ventanaP;
+        this.array=array;
+        ventanaR.llenarComboBox(array);
+        numerosRanking();
     }
     
     /*public void actionPerformed(ActionEvent e){
@@ -31,11 +35,15 @@ public class ControladorVentanaRanking implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        numerosRanking();
+        System.out.println("activa el ranking entrando");
+        //ventanaR.llenarComboBox(array);
+        
     }
     
     public void numerosRanking(){
+        
         int contador = ventanaR.getjC_Entrenadores().getSelectedIndex();
+        System.out.println("este es el contador de ranking" + contador);
         ventanaR.setContadores(contador);
     }
 }

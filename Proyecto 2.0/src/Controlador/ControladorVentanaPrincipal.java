@@ -34,7 +34,7 @@ public class ControladorVentanaPrincipal implements ActionListener {
     public ControladorVentanaPrincipal() {
         registro = new RegistroEntrenador();
         ventanaC = new VentanaCreadorEntrenador(registro);
-        ventanaR = new VentanaRanking();
+
         ventanaP = new VentanaPokedex();
         ventanaB = new VentanaBatalla();
         server = new ServerPrivado();
@@ -46,6 +46,7 @@ public class ControladorVentanaPrincipal implements ActionListener {
             ventanaC.show();
         }
         if (e.getActionCommand().equalsIgnoreCase("Ranking")) {
+            ventanaR = new VentanaRanking();
             ventanaR.show();
             ventanaR.llenarComboBox(registro);
         }

@@ -27,7 +27,7 @@ public class VentanaRanking extends javax.swing.JFrame {
     public VentanaRanking() {
         initComponents();
         this.setTitle("Ranking Entrenador");
-        control = new ControladorVentanaRanking(this);
+        control = new ControladorVentanaRanking(this,array);
         jC_Entrenadores.addActionListener(control);
     }
 
@@ -35,16 +35,15 @@ public class VentanaRanking extends javax.swing.JFrame {
         jC_Entrenadores.removeAllItems();
         for(int i = 0; i < array.getTamano(); i++) {
                 jC_Entrenadores.addItem(array.getObjeto(i).getUsuario());
-            }
-        
+        }
     }    
     public JComboBox getjC_Entrenadores() {
         return jC_Entrenadores;
     }
 
     public void setContadores(int contador){
-     jL_ContadorVictorias.setText(array.getObjeto(contador).getVictorias()+"");
-     jL_ContadorDerrotas.setText(array.getObjeto(contador).getDerrotas()+"");
+        jL_ContadorVictorias.setText(array.getObjeto(contador).getVictorias()+"");
+        jL_ContadorDerrotas.setText(array.getObjeto(contador).getDerrotas()+"");
     }
 
     /**

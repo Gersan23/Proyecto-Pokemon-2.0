@@ -27,6 +27,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jBChat.setContentAreaFilled(false);
         jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(cVentanaPrincipal);
+        setSize(497,359);
+        setLocationRelativeTo(null);
     }
 
     /**

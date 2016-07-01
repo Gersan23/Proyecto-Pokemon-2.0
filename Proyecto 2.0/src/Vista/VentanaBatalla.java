@@ -17,6 +17,8 @@ public class VentanaBatalla extends javax.swing.JFrame {
     public VentanaBatalla() {
         initComponents();
         this.setTitle("Batalla");
+        setSize(650,340);
+        setLocationRelativeTo(null);
     }
 
     /**

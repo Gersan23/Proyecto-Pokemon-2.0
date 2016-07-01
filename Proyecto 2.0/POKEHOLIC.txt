@@ -1,7 +1,7 @@
-Bulbasaur/1/Tipo: A Bulbasaur es fácil verle echándose una siesta al sol-La semilla que tiene en el lomo va creciendo cada vez más a medida que absorbe los rayos del sol
-Ivysaur/2/Tipo: Este Pokémon lleva un bulbo en el lomo y para poder con su peso tiene unas patas y un tronco gruesos y fuertes- Si empieza a pasar más tiempo al sol, será porque el bulbo está a punto de hacerse una flor grande
-Venusaur/3/Tipo: Venusaur tiene una flor enorme en el lomo que, según parece,adquiere unos colores muy vivos si está bien nutrido y le da mucho el sol.El aroma delicado de la flor tiene un efecto relajante en el ánimo de las personas.
-Charmander/4/Tipo: La llama que tiene en la punta de la cola arde según sus sentimientos. Llamea levemente cuando está alegre y arde vigorosamente cuando está enfadado.
+Bulbasaur/1/Tipo: A Bulbasaur es facil verle echandose una siesta al sol-La semilla que tiene en el lomo va creciendo cada vez mas a medida que absorbe los rayos del sol
+Ivysaur/2/Tipo: Este Pokemon lleva un bulbo en el lomo y para poder con su peso tiene unas patas y un tronco gruesos y fuertes- Si empieza a pasar mas tiempo al sol, será porque el bulbo esta a punto de hacerse una flor grande
+Venusaur/3/Tipo: Venusaur tiene una flor enorme en el lomo que, segun parece,adquiere unos colores muy vivos si esta bien nutrido y le da mucho el sol.El aroma delicado de la flor tiene un efecto relajante en el animo de las personas.
+Charmander/4/Tipo: La llama que tiene en la punta de la cola arde segun sus sentimientos. Llamea levemente cuando esta alegre y arde vigorosamente cuando está enfadado.
 Charmeleon/5/Tipo: Charmeleon no tiene reparo en acabar con su rival usando las afiladas garras que tiene. Si su enemigo es fuerte, se vuelve agresivo, y la llama que tiene en el extremo de la cola empieza a arder con mayor intensidad tornándose azulada.
 Charizard/6/Tipo: Charizard se dedica a volar por los cielos en busca de oponentes fuertes. Echa fuego por la boca y es capaz de derretir cualquier cosa.No obstante, si su rival es más débil que él, no usará este ataque.
 Squirtle/7/Tipo: El caparazón de Squirtle no le sirve de protección únicamente. Su forma redondeada y las hendiduras que tiene le ayudan a deslizarse en el agua y le permiten nadar a gran velocidad.
