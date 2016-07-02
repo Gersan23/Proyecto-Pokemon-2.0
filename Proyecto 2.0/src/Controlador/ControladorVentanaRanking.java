@@ -37,11 +37,10 @@ public class ControladorVentanaRanking implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         System.out.println("activa el ranking entrando");
         //ventanaR.llenarComboBox(array);
-       
+      
     }
     
-    public void numerosRanking(){
-        
+    public void numerosRanking(){        
         int contador = ventanaR.getjC_Entrenadores().getSelectedIndex();
         System.out.println("este es el contador de ranking" + contador);
         ventanaR.setContadores(contador);

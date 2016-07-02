@@ -43,7 +43,7 @@ public class VectorPokemon {
         if (arrayPoke != null) {
             for (int i = 0; i < arrayPoke.size(); i++) {
                 if (arrayPoke.get(i).getNombre().equalsIgnoreCase(nombre)) {
-                  return posicion = i;
+                  posicion = i;
                 }
             }
         }
@@ -52,14 +52,14 @@ public class VectorPokemon {
     }
 
     public void inicializarPokemon() {//buscar metodo 
-        String aux;
+        String lineaTxT;
         while (iteradorPokemon.hasNext()) {
             contador++;
-            aux = (String) iteradorPokemon.next();
-            if (aux != null) {
-                String[] infoPokemon = aux.split("/");
-                String aux5 = infoPokemon[2];
-                String aux3[] = aux5.split("-");
+            lineaTxT = (String) iteradorPokemon.next();
+            if (lineaTxT != null) {
+                String[] infoPokemon = lineaTxT.split("/");
+                String detallePoke = infoPokemon[2];
+                String aux3[] = detallePoke.split("-");
                 for (int i = 0; i < aux3.length; i++) {
                     aux4 += aux3[i] + "\n";
                 }

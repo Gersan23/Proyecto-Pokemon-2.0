@@ -13,7 +13,14 @@ import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
+import javax.swing.ScrollPaneConstants;
+import Controlador.ClientePrivado;
+import Modelo.ServerPrivado;
+import Controlador.HiloServer;
 import Controlador.ControladorVentanaBatalla;
+import javax.swing.JTextField;
 
 /**
  *
@@ -26,14 +33,20 @@ public class VentanaBatalla extends javax.swing.JFrame {
     /**
      * Creates new form VentanaBatalla
      */
+    ClientePrivado cliente;
     public VentanaBatalla() {
         initComponents();
         this.setTitle("Batalla");
         setSize(650,340);
         setLocationRelativeTo(null);
+        cliente= new ClientePrivado(jT_Chat);
+        Thread hilo = new Thread(cliente);
+        hilo.start();
         RegistroEntrenador array = new RegistroEntrenador();
         control = new ControladorVentanaBatalla(this, array);
         jBListo.addActionListener(control);
+        jButton1.addActionListener(control);
+        
     }
     
     
@@ -72,27 +85,27 @@ public class VentanaBatalla extends javax.swing.JFrame {
         jL_AtaqueR2.setText(ataqueR2+"");
     }
 
-   public void agregarImagen1(int i){
-        
-        pokemonVect.poke(i);
-        
+   public void agregarImagen1(int i){                       
         Image image=pokemonVect.poke(i).getImagen();
         Icon icon= new ImageIcon(image);
-        jL_Pokemon1.setIcon(icon);
-        
+        jL_Pokemon1.setIcon(icon);        
     }
     public void agregarImagen2(int i){
-        
-        pokemonVect.poke(i);
-        
         Image image=pokemonVect.poke(i).getImagen();
         Icon icon= new ImageIcon(image);
-        jL_Pokemon2.setIcon(icon);
-        
+        jL_Pokemon2.setIcon(icon);        
     }
 
     public void setjT_Chat(String mensaje) {
         jT_Chat.setText(mensaje);
+    }
+
+    public JTextArea getjT_Chat() {
+        return jT_Chat;
+    }
+
+    public JTextField getjTChat() {
+        return jTChat;
     }
     
     /**
@@ -117,6 +130,8 @@ public class VentanaBatalla extends javax.swing.JFrame {
         jLabelEntrenadores = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jBListo = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jTChat = new javax.swing.JTextField();
         jLFotoPoke2 = new javax.swing.JLabel();
 
         jLabel2.setText("CPU");
@@ -124,14 +139,14 @@ public class VentanaBatalla extends javax.swing.JFrame {
         setBackground(new java.awt.Color(204, 255, 255));
         getContentPane().setLayout(null);
         getContentPane().add(jL_Pokemon1);
-        jL_Pokemon1.setBounds(80, 90, 81, 66);
+        jL_Pokemon1.setBounds(110, 110, 40, 40);
 
         jT_Chat.setColumns(20);
         jT_Chat.setRows(5);
         jScrollPane1.setViewportView(jT_Chat);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(46, 193, 542, 96);
+        jScrollPane1.setBounds(50, 180, 542, 96);
         getContentPane().add(jL_Pokemon2);
         jL_Pokemon2.setBounds(450, 90, 83, 66);
 
@@ -172,6 +187,18 @@ public class VentanaBatalla extends javax.swing.JFrame {
         getContentPane().add(jBListo);
         jBListo.setBounds(560, 0, 55, 23);
 
+        jButton1.setText("Ok");
+        getContentPane().add(jButton1);
+        jButton1.setBounds(540, 280, 45, 23);
+
+        jTChat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTChatActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTChat);
+        jTChat.setBounds(50, 280, 490, 20);
+
         jLFotoPoke2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pokemon_x_and_y_battle_background_10_by_phoenixoflight92-d843fov.png"))); // NOI18N
         jLFotoPoke2.setText("CPU");
         getContentPane().add(jLFotoPoke2);
@@ -183,6 +210,10 @@ public class VentanaBatalla extends javax.swing.JFrame {
     private void jComboBoxJugadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxJugadoresActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxJugadoresActionPerformed
+
+    private void jTChatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTChatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTChatActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,6 +252,7 @@ public class VentanaBatalla extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBListo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBoxJugadores;
     private javax.swing.JLabel jLFotoPoke2;
     private javax.swing.JLabel jL_Ataque1;
@@ -233,6 +265,7 @@ public class VentanaBatalla extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelEntrenadores;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTChat;
     private javax.swing.JTextArea jT_Chat;
     // End of variables declaration//GEN-END:variables
 }

@@ -36,7 +36,7 @@ public class HiloServer implements Runnable{
             
             in = new DataInputStream(socket.getInputStream());
             out = new DataOutputStream(socket.getOutputStream());
-            out.writeUTF("Bienvenido al servicio de chats E&G....");
+            out.writeUTF("Bienvenido al PokeChat...\n");
             
             while(true){//Metodo para que cuando se envien mensajes, lo rciban todos los que esten co nectados al servidor
                String recibido = in.readUTF();

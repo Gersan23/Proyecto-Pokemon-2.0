@@ -9,9 +9,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
-import javax.swing.JEditorPane;
-import Vista.FramePrivado;
-import Controlador.HiloServer;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -25,11 +23,11 @@ public class ClientePrivado implements Runnable{
     private int puerto = 2027;
     private String host = "localhost";
     private String mensajes = "";
-    JEditorPane panel;
+    JTextArea text;
     
   
-    public ClientePrivado(JEditorPane panel){
-        this.panel = panel;
+    public ClientePrivado(JTextArea panel){
+        this.text = panel;
         try {
             cliente = new Socket(host,puerto);
             in = new DataInputStream(cliente.getInputStream());
@@ -46,7 +44,7 @@ public class ClientePrivado implements Runnable{
        
             while(true){
                 mensajes += in.readUTF();
-                panel.setText(mensajes);
+                text.setText(mensajes);
             }
         }catch(Exception e){
             e.printStackTrace();

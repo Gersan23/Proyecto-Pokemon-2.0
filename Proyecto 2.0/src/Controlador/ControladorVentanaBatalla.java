@@ -22,6 +22,7 @@ public class ControladorVentanaBatalla implements ActionListener {
     VentanaBatalla ventanaBatalla;
     VectorPokemon vector;
     int contadorRounds = 0;
+    private ClientePrivado cliente;
     RegistroEntrenador array = new RegistroEntrenador();
     int rnd = (int) (Math.random() * 100 + 1);
     int rnd2 = (int) (Math.random() * 100 + 1);
@@ -37,12 +38,16 @@ public class ControladorVentanaBatalla implements ActionListener {
             JOptionPane.showMessageDialog(null, "Hola");
             lucha();
         }
+        if(e.getActionCommand().equalsIgnoreCase("Ok")){
+            chat();
+        }
         
     }
 
     public void lucha() {
         Entrenador entrenador;
-        entrenador = array.getObjeto(ventanaBatalla.getjComboBoxJugadores().getSelectedIndex());
+        int posicion = ventanaBatalla.getjComboBoxJugadores().getSelectedIndex();
+        entrenador = array.getObjeto(posicion);
         Entrenador cpu = array.getObjeto(0);
         setRound1(entrenador);
         setRound2(entrenador);
@@ -76,7 +81,8 @@ public class ControladorVentanaBatalla implements ActionListener {
     }
 
     public int buscarPokemon1(Entrenador entrenador) {
-        int posicion = vector.poke1(entrenador.getPokemon1());
+        int o = vector.poke1(entrenador.getPokemon1());
+        int posicion = o;
         return posicion;
     }
 
@@ -115,5 +121,14 @@ public class ControladorVentanaBatalla implements ActionListener {
     public int buscarPokemon3(Entrenador entrenador) {
         int posicion = vector.poke1(entrenador.getPokemon3());
         return posicion;
+    }
+    public void chat(){
+     String nombre = (String) ventanaBatalla.getjComboBoxJugadores().getSelectedItem();
+        if(nombre.trim().length() == 0)nombre = "Sin Nombre";
+        String msg = ventanaBatalla.getjTChat().getText();
+        if(nombre.trim().length() == 0)return;
+        ventanaBatalla.getjT_Chat().setText("");
+        cliente = new ClientePrivado(ventanaBatalla.getjT_Chat());
+        cliente.enviarMsg("-"+nombre+": "+msg+"\n");   
     }
 }

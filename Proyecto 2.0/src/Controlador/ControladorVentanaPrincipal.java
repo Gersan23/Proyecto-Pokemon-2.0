@@ -6,15 +6,12 @@
 package Controlador;
 
 import Modelo.RegistroEntrenador;
-import Modelo.ServerPrivado;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import Vista.VentanaCreadorEntrenador;
 import Vista.VentanaRanking;
 import Vista.VentanaPokedex;
 import Vista.VentanaBatalla;
-import Vista.FramePrivado;
-import javax.swing.JOptionPane;
 import Modelo.ServerPrivado;
 import Vista.VentanaPrincipal;
 
@@ -29,9 +26,9 @@ public class ControladorVentanaPrincipal implements ActionListener {
     private VentanaPokedex ventanaP;
     private VentanaBatalla ventanaB;
     private RegistroEntrenador registro;
-    private FramePrivado ventanaChat;
     private ServerPrivado server;
     private VentanaPrincipal ventanaPrin;
+    private ControladorVentanaRanking controlR;
     public ControladorVentanaPrincipal() {
         registro = new RegistroEntrenador();
         ventanaC = new VentanaCreadorEntrenador(registro);
@@ -58,10 +55,6 @@ public class ControladorVentanaPrincipal implements ActionListener {
             ventanaB = new VentanaBatalla();           
             ventanaB.show();
              ventanaB.llenarComboBox(registro);
-        }
-        if (e.getActionCommand().equalsIgnoreCase("Chat")) {
-            ventanaChat = new FramePrivado();
-            ventanaChat.show();
         }
         if (e.getActionCommand().equalsIgnoreCase("Server")) {
             server = new ServerPrivado();
