@@ -20,6 +20,7 @@ import Controlador.ClientePrivado;
 import Modelo.ServerPrivado;
 import Controlador.HiloServer;
 import Controlador.ControladorVentanaBatalla;
+import Modelo.Pokemon;
 import javax.swing.JTextField;
 
 /**
@@ -85,8 +86,9 @@ public class VentanaBatalla extends javax.swing.JFrame {
         jL_AtaqueR2.setText(ataqueR2+"");
     }
 
-   public void agregarImagen1(int i){                       
-        Image image=pokemonVect.poke(i).getImagen();
+   public void agregarImagen1(int i){    
+       Pokemon poke =pokemonVect.poke(i);
+        Image image=poke.getImagen();
         Icon icon= new ImageIcon(image);
         jL_Pokemon1.setIcon(icon);        
     }

@@ -26,6 +26,10 @@ public class ControladorVentanaBatalla implements ActionListener {
     RegistroEntrenador array = new RegistroEntrenador();
     int rnd = (int) (Math.random() * 100 + 1);
     int rnd2 = (int) (Math.random() * 100 + 1);
+    int rnd3 = (int) (Math.random() * 100 + 1);
+    int rnd4 = (int) (Math.random() * 100 + 1);
+    int rnd5 = (int) (Math.random() * 100 + 1);
+    int rnd6 = (int) (Math.random() * 100 + 1);
 
     public ControladorVentanaBatalla(VentanaBatalla ventanaB, RegistroEntrenador array) {
         this.ventanaBatalla = ventanaB;
@@ -36,7 +40,7 @@ public class ControladorVentanaBatalla implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equalsIgnoreCase("Listo")){
             JOptionPane.showMessageDialog(null, "Hola");
-            lucha();
+            lucha(array);
         }
         if(e.getActionCommand().equalsIgnoreCase("Ok")){
             chat();
@@ -44,7 +48,7 @@ public class ControladorVentanaBatalla implements ActionListener {
         
     }
 
-    public void lucha() {
+    public void lucha(RegistroEntrenador array) {
         Entrenador entrenador;
         int posicion = ventanaBatalla.getjComboBoxJugadores().getSelectedIndex();
         entrenador = array.getObjeto(posicion);
@@ -54,12 +58,14 @@ public class ControladorVentanaBatalla implements ActionListener {
         setRound3(entrenador);
         int contador = 0;
         if(contadorRounds == 2 || contadorRounds == 3){
-            ventanaBatalla.setjT_Chat("El ganador fue "+entrenador.getUsuario());
+        cliente = new ClientePrivado(ventanaBatalla.getjT_Chat());
+            cliente.enviarMsg("El ganador fue "+entrenador.getUsuario());
             entrenador.setVictorias(entrenador.getVictorias()+1);
             cpu.setDerrotas(cpu.getDerrotas()+1);
         }
         else{
-            ventanaBatalla.setjT_Chat("El ganador fue CPU");
+        cliente = new ClientePrivado(ventanaBatalla.getjT_Chat());
+            cliente.enviarMsg("El ganador fue CPU");
             entrenador.setDerrotas(entrenador.getDerrotas()+1);
             cpu.setVictorias(cpu.getVictorias()+1);
         }
@@ -73,8 +79,8 @@ public class ControladorVentanaBatalla implements ActionListener {
         Entrenador cpu = array.getObjeto(0);
         ventanaBatalla.setjL_AtaqueR1(ataqueUser);
         ventanaBatalla.setjL_AtaqueR2(ataqueCPU);
-        ventanaBatalla.agregarImagen1(buscarPokemon1(entrenador));
-        ventanaBatalla.agregarImagen2(buscarPokemon1(cpu));
+        //ventanaBatalla.agregarImagen1(buscarPokemon1(entrenador));
+        //ventanaBatalla.agregarImagen2(buscarPokemon1(cpu));
         if (rnd > rnd2) {
             contadorRounds++;
         }
@@ -89,13 +95,13 @@ public class ControladorVentanaBatalla implements ActionListener {
     public void setRound2(Entrenador entrenador) {
 
         JOptionPane.showMessageDialog(null, "Listo segundo round");
-        int ataqueUser = rnd;
-        int ataqueCPU = rnd2;
+        int ataqueUser = rnd3;
+        int ataqueCPU = rnd4;
         Entrenador cpu = array.getObjeto(0);
         ventanaBatalla.setjL_AtaqueR1(ataqueUser);
         ventanaBatalla.setjL_AtaqueR2(ataqueCPU);
-        ventanaBatalla.agregarImagen1(buscarPokemon2(entrenador));
-        ventanaBatalla.agregarImagen2(buscarPokemon2(cpu));
+        //ventanaBatalla.agregarImagen1(buscarPokemon2(entrenador));
+        //ventanaBatalla.agregarImagen2(buscarPokemon2(cpu));
         if (rnd > rnd2) {
             contadorRounds++;
         }
@@ -106,14 +112,14 @@ public class ControladorVentanaBatalla implements ActionListener {
     }
     public void setRound3(Entrenador entrenador) {
 
-        JOptionPane.showMessageDialog(null, "Listo segundo round");
-        int ataqueUser = rnd;
-        int ataqueCPU = rnd2;
+        JOptionPane.showMessageDialog(null, "Listo tercer round");
+        int ataqueUser = rnd5;
+        int ataqueCPU = rnd6;
         Entrenador cpu = array.getObjeto(0);
         ventanaBatalla.setjL_AtaqueR1(ataqueUser);
         ventanaBatalla.setjL_AtaqueR2(ataqueCPU);
-        ventanaBatalla.agregarImagen1(buscarPokemon2(entrenador));
-        ventanaBatalla.agregarImagen2(buscarPokemon2(cpu));
+        //ventanaBatalla.agregarImagen1(buscarPokemon2(entrenador));
+        //ventanaBatalla.agregarImagen2(buscarPokemon2(cpu));
         if (rnd > rnd2) {
             contadorRounds++;
         }

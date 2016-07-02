@@ -18,7 +18,6 @@ import java.util.Random;
  */
 public class VectorPokemon {
 
-    private Pokemon vectorPoke[];
     DevuelveImagen imagen = new DevuelveImagen();
     //private String [] infoPokemon;  
     private ArrayList<Pokemon> arrayPoke = new ArrayList<>();
