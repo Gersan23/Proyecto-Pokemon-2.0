@@ -23,7 +23,7 @@ public class ControladorVentanaBatalla implements ActionListener {
     VectorPokemon vector;
     int contadorRounds = 0;
     private ClientePrivado cliente;
-    RegistroEntrenador array = new RegistroEntrenador();
+    RegistroEntrenador array;
     int rnd = (int) (Math.random() * 100 + 1);
     int rnd2 = (int) (Math.random() * 100 + 1);
     int rnd3 = (int) (Math.random() * 100 + 1);
@@ -31,9 +31,9 @@ public class ControladorVentanaBatalla implements ActionListener {
     int rnd5 = (int) (Math.random() * 100 + 1);
     int rnd6 = (int) (Math.random() * 100 + 1);
 
-    public ControladorVentanaBatalla(VentanaBatalla ventanaB, RegistroEntrenador array) {
-        this.ventanaBatalla = ventanaB;
-        this.array = array;       
+    public ControladorVentanaBatalla(VentanaBatalla ventanaB, RegistroEntrenador arrayE) {
+        ventanaBatalla = ventanaB;
+        array=arrayE;       
     }
 
     
@@ -118,8 +118,8 @@ public class ControladorVentanaBatalla implements ActionListener {
         Entrenador cpu = array.getObjeto(0);
         ventanaBatalla.setjL_AtaqueR1(ataqueUser);
         ventanaBatalla.setjL_AtaqueR2(ataqueCPU);
-        //ventanaBatalla.agregarImagen1(buscarPokemon2(entrenador));
-        //ventanaBatalla.agregarImagen2(buscarPokemon2(cpu));
+        // ventanaBatalla.agregarImagen1(buscarPokemon2(entrenador));
+        // ventanaBatalla.agregarImagen2(buscarPokemon2(cpu));
         if (rnd > rnd2) {
             contadorRounds++;
         }

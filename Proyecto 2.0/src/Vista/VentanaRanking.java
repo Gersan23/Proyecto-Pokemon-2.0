@@ -18,14 +18,15 @@ import javax.swing.JLabel;
  */
 public class VentanaRanking extends javax.swing.JFrame {
 
-    RegistroEntrenador array = new RegistroEntrenador();
+    RegistroEntrenador array;
     ControladorVentanaRanking control;
 
     /**
      * Creates new form VentanaRanking
      */
-    public VentanaRanking() {
+    public VentanaRanking( RegistroEntrenador arrayE) {
         initComponents();
+        array=arrayE;
         this.setTitle("Ranking Entrenador");
         control = new ControladorVentanaRanking(this,array);
         jC_Entrenadores.addActionListener(control);

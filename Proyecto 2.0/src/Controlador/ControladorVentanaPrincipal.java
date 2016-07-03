@@ -44,7 +44,7 @@ public class ControladorVentanaPrincipal implements ActionListener {
             ventanaC.show();
         }
         if (e.getActionCommand().equalsIgnoreCase("Ranking")) {
-            ventanaR = new VentanaRanking();
+            ventanaR = new VentanaRanking(registro);
             ventanaR.show();
             ventanaR.llenarComboBox(registro);
         }
@@ -52,7 +52,7 @@ public class ControladorVentanaPrincipal implements ActionListener {
             ventanaP.show();
         }
         if (e.getActionCommand().equalsIgnoreCase("Batalla")) {
-            ventanaB = new VentanaBatalla();           
+            ventanaB = new VentanaBatalla(registro);           
             ventanaB.show();
              ventanaB.llenarComboBox(registro);
         }

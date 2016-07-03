@@ -35,7 +35,8 @@ public class VentanaBatalla extends javax.swing.JFrame {
      * Creates new form VentanaBatalla
      */
     ClientePrivado cliente;
-    public VentanaBatalla() {
+    private RegistroEntrenador array;
+    public VentanaBatalla(RegistroEntrenador arrayE) {
         initComponents();
         this.setTitle("Batalla");
         setSize(650,340);
@@ -43,7 +44,7 @@ public class VentanaBatalla extends javax.swing.JFrame {
         cliente= new ClientePrivado(jT_Chat);
         Thread hilo = new Thread(cliente);
         hilo.start();
-        RegistroEntrenador array = new RegistroEntrenador();
+        array=arrayE;
         control = new ControladorVentanaBatalla(this, array);
         jBListo.addActionListener(control);
         jButton1.addActionListener(control);
@@ -148,25 +149,25 @@ public class VentanaBatalla extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jT_Chat);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(50, 180, 542, 96);
+        jScrollPane1.setBounds(50, 180, 542, 78);
         getContentPane().add(jL_Pokemon2);
         jL_Pokemon2.setBounds(450, 90, 83, 66);
 
         jL_Ataque1.setText("Ataque:");
         getContentPane().add(jL_Ataque1);
-        jL_Ataque1.setBounds(76, 161, 39, 14);
+        jL_Ataque1.setBounds(76, 161, 38, 15);
 
         jL_AtaqueR1.setText("0");
         getContentPane().add(jL_AtaqueR1);
-        jL_AtaqueR1.setBounds(150, 160, 44, 14);
+        jL_AtaqueR1.setBounds(150, 160, 44, 15);
 
         jL_AtaqueR2.setText("0");
         getContentPane().add(jL_AtaqueR2);
-        jL_AtaqueR2.setBounds(430, 160, 44, 14);
+        jL_AtaqueR2.setBounds(430, 160, 44, 15);
 
         jLabel1.setText("Ataque:");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(482, 161, 39, 14);
+        jLabel1.setBounds(482, 161, 38, 15);
 
         jComboBoxJugadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBoxJugadores.addActionListener(new java.awt.event.ActionListener() {
@@ -175,7 +176,7 @@ public class VentanaBatalla extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jComboBoxJugadores);
-        jComboBoxJugadores.setBounds(50, 50, 180, 20);
+        jComboBoxJugadores.setBounds(50, 50, 180, 24);
 
         jLabelEntrenadores.setText("Entrenadores");
         getContentPane().add(jLabelEntrenadores);
@@ -183,15 +184,15 @@ public class VentanaBatalla extends javax.swing.JFrame {
 
         jLabel3.setText("CPU");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(560, 160, 30, 14);
+        jLabel3.setBounds(560, 160, 30, 15);
 
         jBListo.setText("Listo");
         getContentPane().add(jBListo);
-        jBListo.setBounds(560, 0, 55, 23);
+        jBListo.setBounds(560, 0, 57, 25);
 
         jButton1.setText("Ok");
         getContentPane().add(jButton1);
-        jButton1.setBounds(540, 280, 45, 23);
+        jButton1.setBounds(540, 280, 47, 25);
 
         jTChat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -199,7 +200,7 @@ public class VentanaBatalla extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTChat);
-        jTChat.setBounds(50, 280, 490, 20);
+        jTChat.setBounds(50, 280, 490, 19);
 
         jLFotoPoke2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pokemon_x_and_y_battle_background_10_by_phoenixoflight92-d843fov.png"))); // NOI18N
         jLFotoPoke2.setText("CPU");
