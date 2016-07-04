@@ -28,7 +28,8 @@ import javax.swing.JTextField;
  * @author Gersan
  */
 public class VentanaBatalla extends javax.swing.JFrame {
-    private VectorPokemon pokemonVect;
+    private VectorPokemon pokemonVect = new VectorPokemon();
+    private VectorPokemon pokeVect2 = new VectorPokemon();
     private ControladorVentanaBatalla control;
     
     /**
@@ -94,7 +95,8 @@ public class VentanaBatalla extends javax.swing.JFrame {
         jL_Pokemon1.setIcon(icon);        
     }
     public void agregarImagen2(int i){
-        Image image=pokemonVect.poke(i).getImagen();
+        Pokemon poke =pokemonVect.poke(i);
+        Image image=poke.getImagen();
         Icon icon= new ImageIcon(image);
         jL_Pokemon2.setIcon(icon);        
     }
@@ -149,9 +151,9 @@ public class VentanaBatalla extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jT_Chat);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(50, 170, 542, 96);
+        jScrollPane1.setBounds(50, 170, 542, 100);
         getContentPane().add(jL_Pokemon2);
-        jL_Pokemon2.setBounds(440, 100, 40, 0);
+        jL_Pokemon2.setBounds(440, 100, 40, 40);
 
         jL_Ataque1.setText("Ataque:");
         getContentPane().add(jL_Ataque1);
