@@ -11,6 +11,7 @@ import Vista.VentanaCreadorEntrenador;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
+import Modelo.Bd_Pokemon;
 
 /**
  *
@@ -21,6 +22,7 @@ public class ControladorVentanaCreadorEntrenador implements ActionListener {
     VentanaCreadorEntrenador ventanaCreador;
     RegistroEntrenador registroEntrenador;
     Entrenador entrenador;
+    Bd_Pokemon vector = new Bd_Pokemon();
 
     public ControladorVentanaCreadorEntrenador(VentanaCreadorEntrenador ventanita, RegistroEntrenador registroEnt) {
         ventanaCreador = ventanita;
@@ -83,9 +85,15 @@ entrenador = new Entrenador(ventanaCreador.getjT_Usuario(),ventanaCreador.getjT_
 
     public void buscar() {
         if (registroEntrenador.verificarEntrenador(ventanaCreador.getjT_CodigoBuscar())) {
-            JOptionPane.showMessageDialog(null,"Usuario: "+entrenador.getUsuario() +"\n Codigo: "+entrenador.getCodigoDeEntrenador()+"\nPokemon 1: " +entrenador.getPokemon1()+"\nPokemon 2: " +entrenador.getPokemon2()+"\nPokemon 3: " +entrenador.getPokemon3());
-            JOptionPane.showMessageDialog(null, "Informacion\n" +registroEntrenador.imprimir(ventanaCreador.getjT_CodigoBuscar() + ""));
             limpiar();
+            ventanaCreador.jT_Usuario.setText(entrenador.getUsuario());
+            ventanaCreador.jT_Usuario.setEditable(false);
+            ventanaCreador.jT_Codigo.setText(entrenador.getCodigoDeEntrenador());
+            ventanaCreador.jT_Codigo.setEditable(false);
+            ventanaCreador.jC_Pokemon1.setSelectedIndex(vector.poke1(entrenador.getPokemon1()));
+            ventanaCreador.jC_Pokemon2.setSelectedIndex(vector.poke1(entrenador.getPokemon2()));
+            ventanaCreador.jC_Pokemon3.setSelectedIndex(vector.poke1(entrenador.getPokemon3()));
+           
             
         } else {
             JOptionPane.showMessageDialog(null, "No existe entrenador  registrado con codigo ingresado, por favor verifique");
@@ -95,7 +103,7 @@ entrenador = new Entrenador(ventanaCreador.getjT_Usuario(),ventanaCreador.getjT_
     public void modificar()
     {
         if (registroEntrenador.verificarEntrenador(ventanaCreador.getjT_CodigoBuscar())==true){
-            JOptionPane.showMessageDialog(null,"Ingrese el codigo del entrenador que desea modificar");
+          //  JOptionPane.showMessageDialog(null,"Ingrese el codigo del entrenador que desea modificar");
         
         }
         entrenador=registroEntrenador.getObjeto(ventanaCreador.getjT_CodigoBuscar());
@@ -112,7 +120,7 @@ entrenador = new Entrenador(ventanaCreador.getjT_Usuario(),ventanaCreador.getjT_
           
           
           registroEntrenador.modificar(entrenador);
-          limpiar();
+         // limpiar();
           //JOptionPane.showMessageDialog(null,"Entrenador modificado correctamente");
            JOptionPane.showMessageDialog(null,"Sus nuevos pokemones son: "+"\nPokemon 1: "+entrenador.getPokemon1()+"\nPokemon 2: "+entrenador.getPokemon2()+"\nPokemon 3: "+entrenador.getPokemon3());
     }
