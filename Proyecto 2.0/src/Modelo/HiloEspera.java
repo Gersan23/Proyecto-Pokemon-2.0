@@ -29,7 +29,11 @@ public class HiloEspera extends Thread {
                 controlB.lucha();                
                 suspend();
                 }
-                else
+                if(ventanaP.selecionJR2()){
+                    controlB.luchaMulti();
+                    suspend();
+                }
+                    
                 System.out.println("Durmiendo");
             } catch (InterruptedException ex) {
                 Logger.getLogger(HiloEspera.class.getName()).log(Level.SEVERE, null, ex);

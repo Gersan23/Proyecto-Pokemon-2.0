@@ -115,6 +115,10 @@ public class VentanaBatalla extends javax.swing.JFrame {
     public JTextField getjTChat() {
         return jTChat;
     }
+
+    public JLabel getjLJugador2() {
+        return jLJugador2;
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -136,7 +140,7 @@ public class VentanaBatalla extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jComboBoxJugadores = new javax.swing.JComboBox<>();
         jLabelEntrenadores = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jLJugador2 = new javax.swing.JLabel();
         jBListo = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jTChat = new javax.swing.JTextField();
@@ -187,9 +191,9 @@ public class VentanaBatalla extends javax.swing.JFrame {
         getContentPane().add(jLabelEntrenadores);
         jLabelEntrenadores.setBounds(50, 20, 180, 20);
 
-        jLabel3.setText("CPU");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(560, 160, 30, 14);
+        jLJugador2.setText("CPU");
+        getContentPane().add(jLJugador2);
+        jLJugador2.setBounds(560, 150, 30, 14);
 
         jBListo.setText("Listo");
         getContentPane().add(jBListo);
@@ -263,6 +267,7 @@ public class VentanaBatalla extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBoxJugadores;
     private javax.swing.JLabel jLFotoPoke2;
+    private javax.swing.JLabel jLJugador2;
     private javax.swing.JLabel jL_Ataque1;
     private javax.swing.JLabel jL_AtaqueR1;
     private javax.swing.JLabel jL_AtaqueR2;
@@ -270,7 +275,6 @@ public class VentanaBatalla extends javax.swing.JFrame {
     private javax.swing.JLabel jL_Pokemon2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelEntrenadores;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTChat;
