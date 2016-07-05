@@ -27,6 +27,8 @@ public class VentanaCreadorEntrenador extends javax.swing.JFrame {
      */
     public VentanaCreadorEntrenador(RegistroEntrenador registroEntrenador) {
         initComponents();
+        setSize(497, 300);
+        setLocationRelativeTo(null);
         llenarComboBox();
         this.registro=registroEntrenador;
         this.setTitle("Crear Entrenador");
@@ -137,11 +139,11 @@ public class VentanaCreadorEntrenador extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jC_Pokemon2);
-        jC_Pokemon2.setBounds(105, 173, 56, 20);
+        jC_Pokemon2.setBounds(105, 173, 120, 20);
 
         jC_Pokemon3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(jC_Pokemon3);
-        jC_Pokemon3.setBounds(105, 211, 56, 20);
+        jC_Pokemon3.setBounds(105, 211, 120, 20);
 
         jB_Modificar.setText("Modifcar");
         jB_Modificar.addActionListener(new java.awt.event.ActionListener() {
@@ -150,23 +152,23 @@ public class VentanaCreadorEntrenador extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jB_Modificar);
-        jB_Modificar.setBounds(292, 237, 73, 23);
+        jB_Modificar.setBounds(250, 240, 90, 23);
 
         jB_Crear.setText("Crear");
         getContentPane().add(jB_Crear);
-        jB_Crear.setBounds(51, 237, 68, 23);
+        jB_Crear.setBounds(10, 240, 68, 23);
 
         jB_Limpiar.setText("Limpiar");
         getContentPane().add(jB_Limpiar);
-        jB_Limpiar.setBounds(129, 237, 75, 23);
+        jB_Limpiar.setBounds(90, 240, 75, 23);
 
         jB_Borrar.setText("Borrar");
         getContentPane().add(jB_Borrar);
-        jB_Borrar.setBounds(214, 237, 72, 23);
+        jB_Borrar.setBounds(170, 240, 72, 23);
 
         jC_Pokemon1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(jC_Pokemon1);
-        jC_Pokemon1.setBounds(105, 128, 56, 20);
+        jC_Pokemon1.setBounds(105, 128, 120, 20);
 
         jB_Buscar.setText("Buscar");
         getContentPane().add(jB_Buscar);
@@ -174,7 +176,7 @@ public class VentanaCreadorEntrenador extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondocreadro.png"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(10, 0, 480, 280);
+        jLabel1.setBounds(0, -20, 480, 310);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
