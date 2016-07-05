@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  * @author Gersan
  */
 public class HiloEspera extends Thread {
-    VentanaPrincipal ventanaP;
+    VentanaPrincipal ventanaP = new VentanaPrincipal();
     ControladorVentanaBatalla controlB;
     public HiloEspera(ControladorVentanaBatalla control){
     controlB = control;
@@ -25,9 +25,10 @@ public class HiloEspera extends Thread {
         while(true){
             try {
                 sleep(1000);
-                if(ventanaP.getjR_1Jugador().isSelected()){
+                if(ventanaP.selecionJR1()){
                 controlB.lucha();
                 }
+                else
                 suspend();
                 System.out.println("Durmiendo");
             } catch (InterruptedException ex) {
