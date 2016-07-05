@@ -12,6 +12,7 @@ import Vista.VentanaBatalla;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import Modelo.Bd_Pokemon;
+import Vista.VentanaPrincipal;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -23,7 +24,7 @@ import javax.swing.JOptionPane;
 public class ControladorVentanaBatalla implements ActionListener {
 
     HiloEspera hiloEspera;
-
+    VentanaPrincipal ventanaPrin;
     VentanaBatalla ventanaBatalla;
     Bd_Pokemon vector = new Bd_Pokemon();
     int contadorRounds = 0;
@@ -44,8 +45,14 @@ public class ControladorVentanaBatalla implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equalsIgnoreCase("Listo")) {
-            hiloEspera = new HiloEspera(this);
-            hiloEspera.start();
+            ventanaPrin = new VentanaPrincipal();
+            hiloEspera = new HiloEspera(this, ventanaPrin);
+            if (ventanaPrin.selecionJR1()) {
+                hiloEspera.start();
+            }
+           if(ventanaPrin.selecionJR2()){
+                hiloEspera.start();
+            }
         }
         if (e.getActionCommand().equalsIgnoreCase("Ok")) {
             chat();
@@ -162,8 +169,8 @@ public class ControladorVentanaBatalla implements ActionListener {
         entrenador = bdEntrenador.getObjetoU(posicionNombre);
         cliente = new ClientePrivado(ventanaBatalla.getjT_Chat());
         ventanaBatalla.getjLJugador2().setText(cliente.enviarNombre());
-        cliente.enviarMsg("Listo para el duelo.\n");
-
+        cliente.enviarMsg("Listo para el duelo Multijugador.\n");
+        ventanaBatalla.getjLJugador2().setText(cliente.enviarNombre());
         dormir(1000);
         setRoundMulti1(entrenador);//round 1
         dormir(1000);
@@ -207,7 +214,7 @@ public class ControladorVentanaBatalla implements ActionListener {
     public void setRoundMulti2(Entrenador entrenador) {
         cliente = new ClientePrivado(ventanaBatalla.getjT_Chat());
         cliente.enviarMsg("Listo primer round\n");
-        cliente.enviarDatos(ventanaBatalla.getjComboBoxJugadores(), buscarPokemon2(entrenador), rnd);
+        cliente.enviarDatos(ventanaBatalla.getjComboBoxJugadores(), buscarPokemon2(entrenador), rnd3);
 
         int ataqueUser = rnd3;
         int ataqueJ2 = cliente.enviarAtaque();
@@ -225,7 +232,7 @@ public class ControladorVentanaBatalla implements ActionListener {
         cliente = new ClientePrivado(ventanaBatalla.getjT_Chat());
         cliente.enviarMsg("Listo tercer round\n");
 
-        cliente.enviarDatos(ventanaBatalla.getjComboBoxJugadores(), buscarPokemon3(entrenador), rnd);
+        cliente.enviarDatos(ventanaBatalla.getjComboBoxJugadores(), buscarPokemon3(entrenador), rnd5);
         int ataqueUser = rnd5;
         int ataqueJ2 = cliente.enviarAtaque();
         ventanaBatalla.setjL_AtaqueR1(ataqueUser);
@@ -236,8 +243,6 @@ public class ControladorVentanaBatalla implements ActionListener {
             contadorRounds++;
         }
     }
-
-    
 
 //////////// UTILES /////////////////////////////
     public void chat() {

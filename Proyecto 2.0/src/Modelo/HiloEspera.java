@@ -16,29 +16,32 @@ import java.util.logging.Logger;
  * @author Gersan
  */
 public class HiloEspera extends Thread {
-    VentanaPrincipal ventanaP = new VentanaPrincipal();
+
+    VentanaPrincipal ventanaP;
     ControladorVentanaBatalla controlB;
-    public HiloEspera(ControladorVentanaBatalla control){
-    controlB = control;
+
+    public HiloEspera(ControladorVentanaBatalla control, VentanaPrincipal ventanaPrin) {
+        controlB = control;
+        this.ventanaP = ventanaPrin;
     }
-    public void run(){
-        while(true){
+
+    public void run() {
+        while (true) {
             try {
                 sleep(1000);
-                if(ventanaP.selecionJR1()){
-                controlB.lucha();                
-                suspend();
-                }
-                if(ventanaP.selecionJR2()){
+                if (ventanaP.selecionJR1()) {
+                    controlB.lucha();
+                    suspend();
+                } else if (ventanaP.selecionJR2()) {
                     controlB.luchaMulti();
                     suspend();
                 }
-                    
+
                 System.out.println("Durmiendo");
             } catch (InterruptedException ex) {
                 Logger.getLogger(HiloEspera.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
         }
     }
 }

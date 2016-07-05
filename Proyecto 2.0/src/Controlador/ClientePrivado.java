@@ -24,7 +24,7 @@ public class ClientePrivado implements Runnable {
     int numeroPoke;
     int ataquePoke;
     private int puerto = 2027;
-    private String host = "localhost";
+    private String host = "2620:9b::1986:e8b1";
     private String mensajes = "";
     JTextArea text;
 
@@ -62,19 +62,16 @@ public class ClientePrivado implements Runnable {
 
     }
      public void enviarDatos(String nombre, int pokemon, int ataque) {
-
-        String recibido = "nombre;pokemon;ataque";
-        String[] valores = recibido.split(";");
-        String nombreJ = valores[0];
-        int pokemonNum = Integer.parseInt(valores[1]);
-        int ataque1 = Integer.parseInt(valores[2]);
+       String nombreJ = nombre;
+        int pokemonNum = pokemon;
+        int ataque1 = ataque;
         try{
-            out.writeUTF(recibido);
+            out.writeUTF("");
         } catch (IOException e){
             e.printStackTrace();
             
         }
-        recibirNombre(nombre);
+        recibirNombre(nombreJ);
         recibirPokemon(pokemonNum);
         recibirAtaque(ataque1);
     }
