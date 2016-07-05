@@ -55,7 +55,7 @@ public class VentanaCreadorEntrenador extends javax.swing.JFrame {
         jC_Pokemon2.removeAllItems();
         jC_Pokemon3.removeAllItems();
         Pokemon pokemon1 = null;
-        for(int i = 0; i < pokemonVect.getTamano()-1; i++){
+        for(int i = 0; i < pokemonVect.getTamano(); i++){
             pokemon1 = pokemonVect.poke(i);
             jC_Pokemon1.addItem((i+1)+"-"+pokemon1.getNombre());
             jC_Pokemon2.addItem((i+1)+"-"+pokemon1.getNombre());

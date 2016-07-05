@@ -10,6 +10,7 @@ import Controlador.ControladorVentanaPrincipal;
 import Modelo.RegistroEntrenador;
 import java.applet.AudioClip;
 import javax.swing.ButtonGroup;
+import javax.swing.JRadioButton;
 
 public class VentanaPrincipal extends javax.swing.JFrame {
 
@@ -189,6 +190,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
+    }
+
+    public JRadioButton getjR_1Jugador() {
+        return jR_1Jugador;
+    }
+
+    public JRadioButton getjR_2Jugadores() {
+        return jR_2Jugadores;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

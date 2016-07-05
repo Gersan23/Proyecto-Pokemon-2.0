@@ -18,13 +18,13 @@ import javax.swing.JComboBox;
  */
 public class ControladorVentanaRanking implements ActionListener {
     VentanaRanking ventanaR;
-    RegistroEntrenador array;
+    RegistroEntrenador array = new RegistroEntrenador();
     JComboBox combo;
     public ControladorVentanaRanking(VentanaRanking ventanaP,RegistroEntrenador array){
         ventanaR = ventanaP;
         this.array=array;
         ventanaR.llenarComboBox(array);
-        numerosRanking();
+        numerosRanking(array);
     }
     
     /*public void actionPerformed(ActionEvent e){
@@ -40,7 +40,7 @@ public class ControladorVentanaRanking implements ActionListener {
       
     }
     
-    public void numerosRanking(){        
+    public void numerosRanking(RegistroEntrenador array){        
         int contador = ventanaR.getjC_Entrenadores().getSelectedIndex();
         System.out.println("este es el contador de ranking" + contador);
         ventanaR.setContadores(contador);
