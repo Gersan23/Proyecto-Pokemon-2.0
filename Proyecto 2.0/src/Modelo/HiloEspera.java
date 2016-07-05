@@ -30,7 +30,7 @@ public class HiloEspera extends Thread {
             try {
                 sleep(1000);
                 if (ventanaP.selecionJR1()) {
-                    controlB.luchaMulti();
+                    controlB.lucha();
                     suspend();
                 } else if (ventanaP.selecionJR2()) {
                     controlB.luchaMulti();
