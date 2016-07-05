@@ -16,7 +16,7 @@ import java.util.Random;
  *
  * @author llasu
  */
-public class VectorPokemon {
+public class Bd_Pokemon {
 
     DevuelveImagen imagen = new DevuelveImagen();
     //private String [] infoPokemon;  
@@ -27,7 +27,7 @@ public class VectorPokemon {
     String aux4 = "";
     Iterador iteradorPokemon = new Iterador("POKEHOLIC.txt");
 
-    public VectorPokemon() {
+    public Bd_Pokemon() {
         inicializarPokemon();
 
     }
@@ -38,11 +38,18 @@ public class VectorPokemon {
     }
 
     public int poke1(String nombre) {
+        
+//        String split[] = nombre.split("-");
         int posicion = 0;
         if (arrayPoke != null) {
+            System.out.println("dentro del metodo poke "+ nombre);
             for (int i = 0; i < arrayPoke.size(); i++) {
                 if (arrayPoke.get(i).getNombre().equalsIgnoreCase(nombre)) {
                   posicion = i;
+                  i=arrayPoke.size();
+                }
+                else{
+                    posicion=-1;
                 }
             }
         }

@@ -11,24 +11,24 @@ import Modelo.RegistroEntrenador;
 import Vista.VentanaBatalla;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import Modelo.VectorPokemon;
+import Modelo.Bd_Pokemon;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author GersanElPuto
+ * @author Gersan
  */
 public class ControladorVentanaBatalla implements ActionListener {
 
     HiloEspera hiloEspera;
 
     VentanaBatalla ventanaBatalla;
-    VectorPokemon vector = new VectorPokemon();
+    Bd_Pokemon vector = new Bd_Pokemon();
     int contadorRounds = 0;
     private ClientePrivado cliente;
-    RegistroEntrenador array = new RegistroEntrenador();
+    RegistroEntrenador bdEntrenador = new RegistroEntrenador();
     int rnd = (int) (Math.random() * 100 + 1);
     int rnd2 = (int) (Math.random() * 100 + 1);
     int rnd3 = (int) (Math.random() * 100 + 1);
@@ -38,7 +38,7 @@ public class ControladorVentanaBatalla implements ActionListener {
 
     public ControladorVentanaBatalla(VentanaBatalla ventanaB, RegistroEntrenador arrayE) {
         ventanaBatalla = ventanaB;
-        array = arrayE;
+        bdEntrenador = arrayE;
 
     }
 
@@ -69,19 +69,20 @@ public class ControladorVentanaBatalla implements ActionListener {
         rnd5 = (int) (Math.random() * 100 + 1);
         rnd6 = (int) (Math.random() * 100 + 1);
         Entrenador entrenador;
-        int posicion = ventanaBatalla.getjComboBoxJugadores().getSelectedIndex();
-        entrenador = array.getObjeto(posicion);
-        Entrenador cpu = array.getObjeto(0);
+        String posicionNombre = ventanaBatalla.getjComboBoxJugadores();
+       
+        entrenador = bdEntrenador.getObjetoU(posicionNombre);//devuelve un entrenador por nombre
+        Entrenador cpu = bdEntrenador.getObjeto(0);
         cliente = new ClientePrivado(ventanaBatalla.getjT_Chat());
         cliente.enviarMsg("Listo para el duelo.\n");
         dormir(1000);
-        setRound1(entrenador);
+        setRound1(entrenador);//round 1
         dormir(1000);
         dormir(1000);
-        setRound2(entrenador);
+        setRound2(entrenador);//round 2
         dormir(1000);
         dormir(1000);
-        setRound3(entrenador);
+        setRound3(entrenador);//round 3
         dormir(1000);
 
         int contador = 0;
@@ -104,12 +105,14 @@ public class ControladorVentanaBatalla implements ActionListener {
     public void setRound1(Entrenador entrenador) {
         cliente = new ClientePrivado(ventanaBatalla.getjT_Chat());
         cliente.enviarMsg("Listo primer round\n");
+        
         int ataqueUser = rnd;
         int ataqueCPU = rnd2;
-        Entrenador cpu = array.getObjeto(0);
+        Entrenador cpu = bdEntrenador.getObjeto(0);
+       //Entrenador
         ventanaBatalla.setjL_AtaqueR1(ataqueUser);
         ventanaBatalla.setjL_AtaqueR2(ataqueCPU);
-        ventanaBatalla.agregarImagen1(buscarPokemon1(entrenador));
+        ventanaBatalla.agregarImagen1(buscarPokemon1(entrenador));//
         ventanaBatalla.agregarImagen2(buscarPokemon1(cpu));
         if (rnd > rnd2) {
             contadorRounds++;
@@ -117,9 +120,10 @@ public class ControladorVentanaBatalla implements ActionListener {
     }
 
     public int buscarPokemon1(Entrenador entrenador) {
+        System.out.println("pokemon 1 "+entrenador.getPokemon1());
         int o = vector.poke1(entrenador.getPokemon1());
-        int posicion = o;
-        return posicion;
+        //int posicion = o;
+        return o;
     }
 
     public void setRound2(Entrenador entrenador) {
@@ -127,7 +131,7 @@ public class ControladorVentanaBatalla implements ActionListener {
         cliente.enviarMsg("Listo segundo round\n");
         int ataqueUser = rnd3;
         int ataqueCPU = rnd4;
-        Entrenador cpu = array.getObjeto(0);
+        Entrenador cpu = bdEntrenador.getObjeto(0);
         ventanaBatalla.setjL_AtaqueR1(ataqueUser);
         ventanaBatalla.setjL_AtaqueR2(ataqueCPU);
         ventanaBatalla.agregarImagen1(buscarPokemon2(entrenador));
@@ -136,18 +140,16 @@ public class ControladorVentanaBatalla implements ActionListener {
             contadorRounds++;
         }
     }
-
     public int buscarPokemon2(Entrenador entrenador) {
         int posicion = vector.poke1(entrenador.getPokemon2());
         return posicion;
     }
-
     public void setRound3(Entrenador entrenador) {
         cliente = new ClientePrivado(ventanaBatalla.getjT_Chat());
         cliente.enviarMsg("Listo tercer round\n");
         int ataqueUser = rnd5;
         int ataqueCPU = rnd6;
-        Entrenador cpu = array.getObjeto(0);
+        Entrenador cpu = bdEntrenador.getObjeto(0);
         ventanaBatalla.setjL_AtaqueR1(ataqueUser);
         ventanaBatalla.setjL_AtaqueR2(ataqueCPU);
         ventanaBatalla.agregarImagen1(buscarPokemon3(entrenador));
@@ -158,12 +160,13 @@ public class ControladorVentanaBatalla implements ActionListener {
     }
 
     public int buscarPokemon3(Entrenador entrenador) {
-        int posicion = vector.poke1(entrenador.getPokemon3());
-        return posicion;
+        
+        int posicion = vector.poke1(entrenador.getPokemon3());//que hace esto
+        return posicion;//regresalaposicion del pokemon
     }
 
     public void chat() {
-        String nombre = (String) ventanaBatalla.getjComboBoxJugadores().getSelectedItem();
+        String nombre =  ventanaBatalla.getjComboBoxJugadores();
         if (nombre.trim().length() == 0) {
             nombre = "Sin Nombre";
         }

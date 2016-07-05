@@ -29,13 +29,12 @@ public class ControladorVentanaPrincipal implements ActionListener {
     private ServerPrivado server;
     private VentanaPrincipal ventanaPrin;
     private ControladorVentanaRanking controlR;
-    public ControladorVentanaPrincipal() {
+    public ControladorVentanaPrincipal(VentanaPrincipal ventanaPrin) {
         registro = new RegistroEntrenador();
         ventanaC = new VentanaCreadorEntrenador(registro);
-
         ventanaP = new VentanaPokedex();
-        
         server = new ServerPrivado();
+        this.ventanaPrin=ventanaPrin;
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -52,9 +51,20 @@ public class ControladorVentanaPrincipal implements ActionListener {
             ventanaP.show();
         }
         if (e.getActionCommand().equalsIgnoreCase("Batalla")) {
-            ventanaB = new VentanaBatalla(registro);           
-            ventanaB.show();
-             ventanaB.llenarComboBox(registro);
+            
+                 System.out.println("hola papu");
+            if(ventanaPrin.selecionJR1()){
+                System.out.println("xDDDDD");
+             VentanaBatalla ventanaBatalla=new VentanaBatalla(registro);
+             ventanaBatalla.llenarComboBox(registro);
+             ventanaBatalla.setVisible(true);
+            
+            }
+            else {
+                System.out.println("llasuu");
+           //  VentanaBatallaDosEntrenadores ventanaBatallaDos=new VentanaBatallaDosEntrenadores(registro);
+           //  ventanaBatallaDos.setVisible(true);
+            }
         }
         if (e.getActionCommand().equalsIgnoreCase("Server")) {
             server = new ServerPrivado();

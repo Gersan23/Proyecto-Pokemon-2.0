@@ -6,7 +6,7 @@
 package Vista;
 import Controlador.ControladorPokedex;
 import Modelo.Pokemon;
-import Modelo.VectorPokemon;
+import Modelo.Bd_Pokemon;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -19,7 +19,7 @@ import javax.swing.JTextArea;
  */
 public class VentanaPokedex extends javax.swing.JFrame {
     Pokemon pokemon;
-    VectorPokemon pokemonVect= new VectorPokemon();
+    Bd_Pokemon pokemonVect= new Bd_Pokemon();
     ControladorPokedex control;
     /**
      * Creates new form VentanaPokedex

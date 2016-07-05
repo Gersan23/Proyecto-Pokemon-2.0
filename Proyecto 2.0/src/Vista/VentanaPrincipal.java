@@ -9,6 +9,7 @@ import Modelo.ServerPrivado;
 import Controlador.ControladorVentanaPrincipal;
 import Modelo.RegistroEntrenador;
 import java.applet.AudioClip;
+import javax.swing.ButtonGroup;
 
 public class VentanaPrincipal extends javax.swing.JFrame {
 
@@ -22,7 +23,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public VentanaPrincipal() {
         initComponents();
         this.setTitle("Pokémon");
-        this.cVentanaPrincipal = new ControladorVentanaPrincipal();
+        this.cVentanaPrincipal = new ControladorVentanaPrincipal(this);
         this.jM_Crear_Entrenador.addActionListener(cVentanaPrincipal);
         this.jM_Ranking.addActionListener(cVentanaPrincipal);
         this.jM_Ver.addActionListener(cVentanaPrincipal);
@@ -31,8 +32,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(cVentanaPrincipal);
         setSize(497, 359);
-        setLocationRelativeTo(null);       
-        //reproducir();
+        setLocationRelativeTo(null);     
+        jR_1Jugador.setSelected(true);
+        ButtonGroup grupo= new ButtonGroup();
+        grupo.add(jR_1Jugador);
+        grupo.add(jR_2Jugadores);
     }
 
     public void reproducir() {
@@ -40,6 +44,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         sonido = java.applet.Applet.newAudioClip(getClass().getResource("pokemon.WAV"));
         sonido.play();
     }
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+              
+    }      
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -70,17 +78,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jR_1Jugador.setForeground(new java.awt.Color(255, 255, 255));
         jR_1Jugador.setText("1 Jugador");
         getContentPane().add(jR_1Jugador);
-        jR_1Jugador.setBounds(30, 150, 109, 30);
+        jR_1Jugador.setBounds(30, 150, 108, 30);
 
         jR_2Jugadores.setFont(new java.awt.Font("Pokemon Solid", 0, 18)); // NOI18N
         jR_2Jugadores.setForeground(new java.awt.Color(255, 255, 255));
         jR_2Jugadores.setText("2 Jugadores");
         getContentPane().add(jR_2Jugadores);
-        jR_2Jugadores.setBounds(30, 190, 130, 35);
+        jR_2Jugadores.setBounds(30, 190, 130, 34);
 
         jB_Batalla.setFont(new java.awt.Font("Pokemon Solid", 0, 24)); // NOI18N
         jB_Batalla.setForeground(new java.awt.Color(255, 255, 255));
         jB_Batalla.setText("Batalla");
+        jB_Batalla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_BatallaActionPerformed(evt);
+            }
+        });
         getContentPane().add(jB_Batalla);
         jB_Batalla.setBounds(170, 160, 145, 59);
 
@@ -88,7 +101,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Server");
         getContentPane().add(jButton1);
-        jButton1.setBounds(390, 270, 90, 25);
+        jButton1.setBounds(390, 270, 90, 26);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -128,6 +141,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jM_VerActionPerformed
 
+    private void jB_BatallaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_BatallaActionPerformed
+      
+    }//GEN-LAST:event_jB_BatallaActionPerformed
+
+    public boolean selecionJR1(){
+        return jR_1Jugador.isSelected();
+    }
+    public boolean selecionJR2(){
+        return jR_2Jugadores.isSelected();
+    }
+    
     /**
      * @param args the command line arguments
      */

@@ -8,7 +8,7 @@ import Controlador.ControladorVentanaCreadorEntrenador;
 import Modelo.Entrenador;
 import Modelo.RegistroEntrenador;
 import Modelo.Pokemon;
-import Modelo.VectorPokemon;
+import Modelo.Bd_Pokemon;
 import java.awt.event.ActionListener;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -20,7 +20,7 @@ import javax.swing.JTextField;
 public class VentanaCreadorEntrenador extends javax.swing.JFrame {
     Entrenador entrenador;
     RegistroEntrenador registro;
-    VectorPokemon pokemonVect = new VectorPokemon();
+    Bd_Pokemon pokemonVect = new Bd_Pokemon();
     
     /**
      * Creates new form VentanaCreadorEntrenador

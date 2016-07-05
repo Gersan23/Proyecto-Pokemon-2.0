@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Vista;
-import Modelo.VectorPokemon;
+import Modelo.Bd_Pokemon;
 import Modelo.RegistroEntrenador;
 import java.awt.Image;
 import java.util.Random;
@@ -28,8 +28,8 @@ import javax.swing.JTextField;
  * @author Gersan
  */
 public class VentanaBatalla extends javax.swing.JFrame {
-    private VectorPokemon pokemonVect = new VectorPokemon();
-    private VectorPokemon pokeVect2 = new VectorPokemon();
+    private Bd_Pokemon pokemonVect = new Bd_Pokemon();
+    private Bd_Pokemon pokeVect2 = new Bd_Pokemon();
     private ControladorVentanaBatalla control;
     
     /**
@@ -60,8 +60,8 @@ public class VentanaBatalla extends javax.swing.JFrame {
         }
     }    
 
-    public JComboBox getjComboBoxJugadores() {
-        return jComboBoxJugadores;
+    public String getjComboBoxJugadores() {
+        return (String)jComboBoxJugadores.getSelectedItem();
     }
 
     public JLabel getjL_AtaqueR1() {
@@ -88,13 +88,16 @@ public class VentanaBatalla extends javax.swing.JFrame {
         jL_AtaqueR2.setText(ataqueR2+"");
     }
 
-   public void agregarImagen1(int i){    
-       Pokemon poke =pokemonVect.poke(i);
+   public void agregarImagen1(int i){    //combo icon 1
+       //String nombreJugador=(String)jComboBoxJugadores.getSelectedItem();
+       
+       Pokemon poke =pokemonVect.poke(i);//un pokemon 
         Image image=poke.getImagen();
         Icon icon= new ImageIcon(image);
+        System.out.println("papu numero de imagen " + i );
         jL_Pokemon1.setIcon(icon);        
     }
-    public void agregarImagen2(int i){
+    public void agregarImagen2(int i){  // combo icon 2
         Pokemon poke =pokemonVect.poke(i);
         Image image=poke.getImagen();
         Icon icon= new ImageIcon(image);

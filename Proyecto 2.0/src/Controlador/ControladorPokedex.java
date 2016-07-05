@@ -7,7 +7,7 @@ package Controlador;
 
 import Vista.VentanaPokedex;
 import Modelo.Pokemon;
-import Modelo.VectorPokemon;
+import Modelo.Bd_Pokemon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
@@ -19,7 +19,7 @@ import javax.swing.JLabel;
 public class ControladorPokedex implements ActionListener{
     VentanaPokedex ventanaCreador;
     Pokemon pokemon;
-    VectorPokemon vectorPokemon;
+    Bd_Pokemon vectorPokemon;
     public ControladorPokedex(VentanaPokedex ventana){
         
         ventanaCreador = ventana;

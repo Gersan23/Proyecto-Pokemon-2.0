@@ -53,10 +53,10 @@ public class ControladorVentanaCreadorEntrenador implements ActionListener {
 
     public void crearEntrenador() {//aqui empezó crearEntrenador
         Entrenador aux;
-        String pokemon1 = ventanaCreador.getjC_Pokemon1();
-        String pokemon2 = ventanaCreador.getjC_Pokemon2();
-        String pokemon3 = ventanaCreador.getjC_Pokemon3();
-        entrenador = new Entrenador(ventanaCreador.getjT_Usuario(), ventanaCreador.getjT_Codigo(), 0, 0, ventanaCreador.getjC_Pokemon1(), ventanaCreador.getjC_Pokemon2(), ventanaCreador.getjC_Pokemon3());
+        String pokemon1[] = ventanaCreador.getjC_Pokemon1().split("-");
+        String pokemon2[]= ventanaCreador.getjC_Pokemon2().split("-");
+        String pokemon3[] = ventanaCreador.getjC_Pokemon3().split("-");
+entrenador = new Entrenador(ventanaCreador.getjT_Usuario(),ventanaCreador.getjT_Codigo(), 0, 0, pokemon1[1],pokemon2[1],pokemon3[1]);
         System.out.println(registroEntrenador.getTamano());
         if (registroEntrenador.getTamano() != 0) {
             System.out.println("lista con datos");
