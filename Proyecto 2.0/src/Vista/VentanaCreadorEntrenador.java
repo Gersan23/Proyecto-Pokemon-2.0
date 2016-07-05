@@ -98,13 +98,13 @@ public class VentanaCreadorEntrenador extends javax.swing.JFrame {
 
         jL_Usuario.setText("Usuario:");
         getContentPane().add(jL_Usuario);
-        jL_Usuario.setBounds(18, 46, 40, 14);
+        jL_Usuario.setBounds(18, 46, 70, 14);
         getContentPane().add(jT_Usuario);
         jT_Usuario.setBounds(105, 43, 99, 20);
 
         jL_Codigo.setText("Código:");
         getContentPane().add(jL_Codigo);
-        jL_Codigo.setBounds(18, 84, 40, 14);
+        jL_Codigo.setBounds(18, 84, 70, 14);
         getContentPane().add(jT_Codigo);
         jT_Codigo.setBounds(105, 81, 99, 20);
 
@@ -122,15 +122,15 @@ public class VentanaCreadorEntrenador extends javax.swing.JFrame {
 
         jL_Pokemon1.setText("Pokémon 1");
         getContentPane().add(jL_Pokemon1);
-        jL_Pokemon1.setBounds(10, 131, 52, 14);
+        jL_Pokemon1.setBounds(10, 131, 80, 14);
 
         jL_Pokemon2.setText("Pokémon 2");
         getContentPane().add(jL_Pokemon2);
-        jL_Pokemon2.setBounds(10, 176, 52, 14);
+        jL_Pokemon2.setBounds(10, 176, 80, 14);
 
         jL_Pokemon3.setText("Pokémon 3");
         getContentPane().add(jL_Pokemon3);
-        jL_Pokemon3.setBounds(18, 214, 52, 14);
+        jL_Pokemon3.setBounds(10, 210, 80, 14);
 
         jC_Pokemon2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jC_Pokemon2.addActionListener(new java.awt.event.ActionListener() {
@@ -172,7 +172,7 @@ public class VentanaCreadorEntrenador extends javax.swing.JFrame {
 
         jB_Buscar.setText("Buscar");
         getContentPane().add(jB_Buscar);
-        jB_Buscar.setBounds(270, 100, 65, 23);
+        jB_Buscar.setBounds(270, 100, 90, 23);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondocreadro.png"))); // NOI18N
         getContentPane().add(jLabel1);
